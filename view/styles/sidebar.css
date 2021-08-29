@@ -1,3 +1,8 @@
+:root{
+    --color-principal: #294E9B;
+    --color-secundario: #63C468;
+}
+
 *{
     font-family: 'Lato', sans-serif;
 }
@@ -14,8 +19,12 @@
     -o-transition: margin 0.25s ease-out;
     transition: margin 0.25s ease-out;
     
-    background-color: #265CAC;
-    font-size: 20px
+    font-size: 20px;
+    background-color: var(--color-principal);
+}
+
+#tit, #menu{
+    color: var(--color-principal);
 }
 
 #sidebar-items .sidebar-heading{
@@ -31,6 +40,7 @@
 
 #contenido-page{
     min-width: 100vw;
+    background-color: #EFEFEF;
 }
 
 #menu{
@@ -49,14 +59,12 @@
 }
 
 .list-group-item.active{
-    background-color: red;
-    color: var(--main-text-color);
     font-weight: bold;
     border: none;
 }
 
 #infocard{
-    background-color: #265CAC;
+    background-color: var(--color-principal);
     color: white;
 }
 
@@ -78,11 +86,11 @@ i{
 }
 
 #btnAlquilar{
-    color: rgb(33, 12, 92);
+    color: var(--color-principal);
 }
 
 #btnAdd{
-    color: #265CAC;
+    color: var(--color-principal);
     font-size: 20px;
     padding: 9px;
 }
@@ -94,6 +102,14 @@ i{
 a{
     text-decoration: none;
     cursor: pointer;
+}
+
+th{
+    font-size: 16px;
+}
+
+td{
+    font-size: 14px;
 }
 
 @media (min-width: 768px){

@@ -17,9 +17,7 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Procedimientos</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/sidebar.css">
+    <?php include ('../includes/links.php')?>
 </head>
 <body>
    
@@ -29,10 +27,10 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos();
     <!---Contenido-->
     
     <div id="contenido-page">
-      <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+      <nav class="navbar navbar-expand-lg navbar-light  py-4 px-4 shadow p-3 mb-5 bg-white rounded">
         <div class="d-flex align-items-center">
           <i class="icon ion-md-reorder" id="menu"></i>
-          <h3 class="fs-2 m-0">Procedimientos</h3>
+          <h3 id="tit" class="fs-2 m-0">Procedimientos</h3>
         </div>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -44,7 +42,7 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos();
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle second-text fw-bold text-uppercase" href="#" id="navbarDropdown"
+                    <a id="tit" class="nav-link dropdown-toggle second-text fw-bold text-uppercase" href="#" id="navbarDropdown"
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-user me-2"></i>Usuario
                     </a>
@@ -60,45 +58,45 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos();
     <div class="container-fluid px-4">
 
 
-        <div class="row my-5 col-md-11 m-auto">
+        <div class="row my-5 col-md-12 m-auto shadow p-3 mb-5 bg-white rounded">
           <h3 class="fs-4 mb-3"><a href="" id="btnExport"><i class="icon ion-md-open"></i></a>Procedimientos</h3>
-
           <div>
             <hr>
-            <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icon ion-md-pulse"></i>Nuevo procedimiento</a>
+            <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-procedimiento-add"><i class="icon ion-md-pulse"></i>Nuevo procedimiento</a>
+            <?php include('screen/modal-procedimiento-add.php')?>
             <!--<input class="col-sm-4" type="text" value="Buscar">-->
-            <br>
           </div> 
 
           <div class="col">
             <div class="table-responsive">
-              <table class="table table-hover text-center">
+            <br>
+              <table class="table table-hover text-center" id="tabla">
                          
                 <thead>
-                    <th>...</th>
+                    <th></th>
                     <th>Tipo</th>
                     <th>Tiempo</th>
                 </thead>
 
                 <tbody>
                 <?php while($display = $consulta_procedimiento->fetch_assoc()){ ?>
-                  <tr>
+                  <tr class="text-uppercase">
                     <td>
-                    <a  data-bs-toggle="modal" data-bs-target="#modal-edit-vehiculo<?php echo "a"?>" id="btnEdit"><i class="icon ion-md-create"></i></a>
+                    <a  data-bs-toggle="modal" data-bs-target="#modal-procedimiento-edit<?php echo $display['PROCE_ID']?>" id="btnEdit"><i class="icon ion-md-create"></i></a>
 
-<a data-bs-toggle="modal" data-bs-target="#modal-delete-vehiculo<?php echo "a"?>"  id="btnDelete" ><i class="icon ion-md-trash"></i></a>
+                    <a data-bs-toggle="modal" data-bs-target="#modal-procedimiento-delete<?php echo $display['PROCE_ID']?>"  id="btnDelete" ><i class="icon ion-md-trash"></i></a>
                     </td>
                     <td><?php echo $display['NOMBRE_PROCE']; ?></td>
                     <td><?php echo $display['TIEMPO']; ?></td>
                     
                   </tr>
-                  <?php } ?>
-                    <!--
-                      <?php 
-                     # include('forms/modal-delete-vehiculo.php');
-                      #include('forms/modal-edit-vehiculo.php');
-                    ?>
-                    -->
+                  <?php 
+                      include('screen/modal-procedimiento-delete.php');
+                      include('screen/modal-procedimiento-edit.php');
+                      
+                   } ?>
+
+                    
                   
                 </tbody>
               </table>
@@ -111,6 +109,6 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos();
   </div>
 
 
-<script src="../events/sidebar.js"></script>
+  <?php include ('../includes/scripts.php')?>
 </body>
 </html>

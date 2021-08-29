@@ -1,3 +1,13 @@
+<?php 
+
+require_once "../../app/data/conexion.php";
+require_once "../../app/data/sql.php";
+
+$consulta = new sql();
+
+$consulta_cita = $consulta->ConsultarCitas();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../styles/sidebar.css">
+    <?php include ('../includes/links.php')?>
 </head>
 <body>
    
@@ -16,11 +24,11 @@
 
     <!---Contenido-->
     
-    <div id="contenido-page">
-      <nav class="navbar navbar-expand-lg navbar-light bg-transparent py-4 px-4">
+    <div id="contenido-page" >
+      <nav class="navbar navbar-expand-lg navbar-light  py-4 px-4 shadow p-3 mb-5 bg-white rounded">
         <div class="d-flex align-items-center">
           <i class="icon ion-md-reorder" id="menu"></i>
-          <h3 class="fs-2 m-0">Inicio</h3>
+          <h3 id="tit" class="fs-2 m-0">Inicio</h3>
         </div>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -32,7 +40,7 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle second-text fw-bold text-uppercase" href="#" id="navbarDropdown"
+                    <a  id="tit" class="nav-link dropdown-toggle second-text fw-bold text-uppercase" href="#" id="navbarDropdown"
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-user me-2"></i>Usuario
                     </a>
@@ -77,24 +85,26 @@
       </div>
     -->
 
-        <div class="row my-5 col-md-11 m-auto">
+        <div class="row my-5 col-md-12 m-auto shadow p-3 mb-5 bg-white rounded">
           <h3 class="fs-4 mb-3"><a href="" id="btnExport"><i class="icon ion-md-open"></i></a>Citas médicas</h3>
 
-          <div>
+          <div >
             <hr>
-            <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="icon ion-md-pulse"></i>Nueva cita</a>
+            <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-cita-add"><i class="icon ion-md-pulse"></i>Nueva cita</a>
+            <?php include('screen/modal-cita-add.php')?>
             <!--<input class="col-sm-4" type="text" value="Buscar">-->
-            <br>
           </div> 
+          <hr>
 
-          <div class="col">
+          <div class="col" >
             <div class="table-responsive">
-              <table class="table table-hover text-center">
+              <table class="table table-hover text-center" id="tabla">
                 <div>
                     <br>      
                     <span>Fecha</span>
+                    <span>Tipo</span>
                 </div>               
-                <thead>
+                <thead> 
                     <th>...</th>
                     <th>Estado</th>
                     <th>Hora</th>
@@ -109,33 +119,34 @@
                 </thead>
 
                 <tbody>
-                  
-                  <tr>
+                <?php while($display = $consulta_cita->fetch_assoc()){ ?>
+                  <tr class="text-uppercase">
                     <td>
-                    <a  data-bs-toggle="modal" data-bs-target="#modal-edit-vehiculo<?php echo $display['VEHICULO_PLACA']?>" id="btnEdit"><i class="icon ion-md-create"></i></a>
+                    <a  data-bs-toggle="modal" data-bs-target="#modal-cita-edit<?php echo $display['COD_CITA']?>" id="btnEdit"><i class="icon ion-md-create"></i></a>
 
-                    <a data-bs-toggle="modal" data-bs-target="#modal-delete-vehiculo<?php echo $display['VEHICULO_PLACA']?>"  id="btnDelete" ><i class="icon ion-md-trash"></i></a>
+                    <a data-bs-toggle="modal" data-bs-target="#modal-cita-delete<?php echo $display['COD_CITA'] ?>"  id="btnDelete" ><i class="icon ion-md-trash"></i></a>
                     </td>
-                    <td class="text-uppercase">abc</td>
-                    <td>abc</td>
-                    <td>abc</td>
-                    <td>abc</td>
-                    <td>abc</td>
-                    <td>abc</td>
-                    <td>abc</td>
-                    <td>abc</td>
-                    <td>abc</td>
-                    <td>abc</td>
+                    <td><?php echo $display['ESTADO']; ?></td>
+                    <td><?php echo $display['HORA']; ?></td>
+                    <td><?php echo $display['NUMERO_HISTORIA']; ?></td>
+                    <td><?php echo $display['NUMERO_DE_ORDEN']; ?></td>
+                    <td><?php echo $display['CED_PA']; ?></td>
+                    <td><?php echo $display['NOMBRE_PA']; ?></td>
+                    <td><?php echo $display['CED_FUN']; ?></td>
+                    <td><?php echo $display['NOMBRE_FUN']; ?></td>
+                    <td><?php echo $display['PROCEDIMIENTOS'] . " " . $display['DETALLE_PRO'] ?></td>
+                    <td><?php echo $display['OBSERVACION']; ?></td>
                   </tr>
-                    <!--
-                      <?php 
-                     # include('forms/modal-delete-vehiculo.php');
-                      #include('forms/modal-edit-vehiculo.php');
-                    ?>
-                    -->
+                  <?php 
+                      include('screen/modal-cita-delete.php');
+                      include('screen/modal-cita-edit.php');
+                      
+                   } ?>
                   
                 </tbody>
               </table>
+
+
             </div>
           </div>
         </div>
@@ -144,80 +155,8 @@
     </div>    
   </div>
 
+ 
 
-<!-- Modal -->
-
-
-
-<!-- MODAL INSERTAR VEHICULO-->
-
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Insertar vehiculo</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-    <form action="../controller/add_vehiculos.php" method="POST">
-      <div class="form-row">
-        <div class="col-md-12 mb-3">
-          <label for="validationServer01">Placa</label>
-          <input  maxlength="7" minlength="7"  type="text" class="form-control " id="validationServer01" placeholder="Número de placa" required name="vehiculo-placa">
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-        </div>
-
-        <div class="col-md-12 mb-3">
-          <label for="validationServer02">Marca</label>
-          <input type="text" class="form-control" id="validationServer02" placeholder="Marca del vehiculo"  required name="vehiculo-marca">
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-        </div>
-        
-        <div class="col-md-12 mb-3">
-          <label for="validationServer02">Modelo</label>
-          <input type="text" class="form-control" id="validationServer02" placeholder="Modelo del vehiculo"  required name="vehiculo-modelo">
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-        </div>
-
-        <div class="col-md-12 mb-3">
-          <label for="validationServer02">Color</label>
-          <input type="text" class="form-control" id="validationServer02" placeholder="Color del vehiculo"  required name="vehiculo-color">
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-        </div>
-
-        <div class="col-md-12 mb-3">
-          <label for="validationServer02">Año</label>
-          <input  maxlength="4" minlength="4" type="text" class="form-control" id="validationServer02" placeholder="Año del vehiculo"  required name="vehiculo-aaa">
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-        </div>
-
-        <div class="col-md-12 mb-3">
-          <label for="validationServer02">Precio</label>
-          <input type="text" class="form-control" id="validationServer02" placeholder="Precio de alquiler por dia"  required name="vehiculo-precio">
-          <div class="valid-feedback">
-            Looks good!
-          </div>
-        </div>
-
-      </div>
-      <div class="modal-footer">
-      <button class="btn btn-primary col-md-12" type="submit">Guardar</button>
-    </form>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script src="../events/sidebar.js"></script>
+  <?php include ('../includes/scripts.php')?>
 </body>
 </html>

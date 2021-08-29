@@ -1,0 +1,26 @@
+:root{
+    --color-principal: #294E9B;
+    --color-secundario: #63C468;
+    --color-principal-hover: #153986;
+    --color-secundario-hover: #359b3a;
+
+}
+
+.btn{
+    background-color: var(--color-secundario);
+}
+
+.btn:hover{
+    background-color: var(--color-secundario-hover);
+}
+
+.modal-title{
+    color: var(--color-principal);
+}
+
+.desc{
+    color: var(--color-secundario);
+}
+.desc:hover{
+    color: var(--color-secundario-hover);
+}

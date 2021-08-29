@@ -12,8 +12,8 @@
 
         # Consultar funcionarios
         public function ConsultarFuncionarios(){
-            $resultado = $this->bd->query("SELECT * FROM funcionarios_imagen ");
-            return true;
+            $resultado = $this->bd->query("SELECT * FROM FUNCIONARIOS_IMAGEN");
+            return $resultado;
         }
 
         # Agregar funcionarios
@@ -27,7 +27,7 @@
 
         #Consultar pacientes
         public function ConsultarPacientes(){
-            $resultado = $this->bd->query("SELECT * FROM pacientes");
+            $resultado = $this->bd->query("SELECT * FROM PACIENTES");
             return $resultado;
         }
 
@@ -44,6 +44,11 @@
         #Eliminar procedimientos
         #Update procedimientos
 
+        #Consultar citas
+        public function ConsultarCitas(){
+            $resultado = $this->bd->query("SELECT * FROM CITA");
+            return $resultado;
+        }
       
     }
 
