@@ -16,6 +16,7 @@ $consulta_cita = $consulta->ConsultarCitas();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <?php include ('../includes/links.php')?>
+
 </head>
 <body>
    
@@ -88,8 +89,8 @@ $consulta_cita = $consulta->ConsultarCitas();
         <div class="row my-5 col-md-12 m-auto shadow p-3 mb-5 bg-white rounded">
           <h3 class="fs-4 mb-3"><a href="" id="btnExport"><i class="icon ion-md-open"></i></a>Citas médicas</h3>
           <hr>
-          <div>
-            <div>
+          <div class="">
+            <div class="">
               <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-cita-add"><i class="icon ion-md-pulse"></i>Nueva cita</a>
 
               <?php include('screen/modal-cita-add.php')?>
@@ -166,4 +167,23 @@ $consulta_cita = $consulta->ConsultarCitas();
 
   <?php include ('../includes/scripts.php')?>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
 </html>
+<script>
+$(document).ready(function() {
+  $('#notificacion').change(function(e) {
+    if ($(this).val() === "recordatorio") {
+      $('#a').prop("disabled", true);
+      $('#b').prop("disabled", true);
+      $('#c').prop("disabled", true);
+
+    } else {
+      $('#a').prop("disabled", false);
+      $('#b').prop("disabled", false);
+      $('#c').prop("disabled", false);
+    }
+  })
+});
+</script>
+
