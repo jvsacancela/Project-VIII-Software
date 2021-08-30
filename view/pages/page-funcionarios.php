@@ -61,11 +61,12 @@ $consulta_funcionarios = $consulta->ConsultarFuncionarios();
 
           <div>
             <hr>
-            <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-funcionario-add"><i class="icon ion-md-pulse"></i>Nuevo funcionario</a>
+            <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-funcionario-add"><i class="icon ion-md-person"></i>Nuevo funcionario</a>
             <?php include('screen/modal-funcionario-add.php')?>
             <!--<input class="col-sm-4" type="text" value="Buscar">-->
           </div> 
 
+          <hr>
           <div class="col">
             <div class="table-responsive">
             <br>

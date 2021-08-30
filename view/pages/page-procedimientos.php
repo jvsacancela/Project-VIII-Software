@@ -62,11 +62,12 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos();
           <h3 class="fs-4 mb-3"><a href="" id="btnExport"><i class="icon ion-md-open"></i></a>Procedimientos</h3>
           <div>
             <hr>
-            <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-procedimiento-add"><i class="icon ion-md-pulse"></i>Nuevo procedimiento</a>
+            <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-procedimiento-add"><i class="icon ion-md-medkit"></i>Nuevo procedimiento</a>
             <?php include('screen/modal-procedimiento-add.php')?>
             <!--<input class="col-sm-4" type="text" value="Buscar">-->
           </div> 
 
+          <hr>
           <div class="col">
             <div class="table-responsive">
             <br>

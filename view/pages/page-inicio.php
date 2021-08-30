@@ -62,13 +62,14 @@ $consulta_cita = $consulta->ConsultarCitas();
 
           <div>
             <div>
-              <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-cita-add"><i class="icon ion-md-pulse"></i>Nueva cita</a>
+              <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-cita-add"><i class="icon ion-md-calendar"></i>Nueva cita médica</a>
+              <!--<i class="icon ion-md-pulse"></i>-->
 
               <?php include('screen/modal-cita-add.php')?>
             </div> 
 
             <div>
-                <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-cita-notificar"><i class="icon ion-md-pulse"></i>Notificar citas</a>
+                <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-cita-notificar"><i class="icon ion-md-notifications"></i>Notificar cita médica</a>
               <?php include('screen/modal-cita-notificar.php') ?>
 </div> 
           </div>
