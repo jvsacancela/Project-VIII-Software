@@ -87,18 +87,20 @@ $consulta_cita = $consulta->ConsultarCitas();
 
         <div class="row my-5 col-md-12 m-auto shadow p-3 mb-5 bg-white rounded">
           <h3 class="fs-4 mb-3"><a href="" id="btnExport"><i class="icon ion-md-open"></i></a>Citas médicas</h3>
+          <hr>
+          <div>
+            <div>
+              <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-cita-add"><i class="icon ion-md-pulse"></i>Nueva cita</a>
 
-          <div >
-            <hr>
-            <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-cita-add"><i class="icon ion-md-pulse"></i>Nueva cita</a>
-            
-            <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-cita-notificar"><i class="icon ion-md-pulse"></i>Notificar citas</a>
-           
-           <?php include('screen/modal-cita-notificar.php');
-                include('screen/modal-cita-add.php');
-          ?>
+              <?php include('screen/modal-cita-add.php')?>
+            </div> 
 
-          </div> 
+            <div>
+                <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-cita-notificar"><i class="icon ion-md-pulse"></i>Notificar citas</a>
+              <?php include('screen/modal-cita-notificar.php') ?>
+            </div> 
+          </div>
+          
           <hr>
 
           <div class="col" >

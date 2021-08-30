@@ -3,7 +3,7 @@
   <div class="modal-dialog  modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Nueva cita médica</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Notificar citas médica</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -17,94 +17,7 @@
                 </div>
               </div>
 
-              <div class="col-md-12 mb-3">
-                <label for="validationServer02">Nombres del paciente</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
-                <div class="valid-feedback">
-                   Excelente!
-                </div>
-              </div>
-
-              <div class="col-md-12 mb-3">
-                <label for="validationServer02">Cédula del funcionario</label>
-                <input type="text" class="form-control" id="validationServer02" required name="cliente-nombre">
-                <div class="valid-feedback">
-                   Excelente!
-                </div>
-              </div>
-
-              <div class="col-md-12 mb-3">
-                <label for="validationServer02">Nombre del funcionario</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
-                <div class="valid-feedback">
-                   Excelente!
-                </div>
-              </div>
-
-              <div class="col-md-12 mb-3">
-                <label for="validationServer02">Historia clínica</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
-                <div class="valid-feedback">
-                   Excelente!
-                </div>
-              </div>
-
-              <div class="col-md-12 mb-3">
-                <label for="validationServer02">Número de orden</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
-                <div class="valid-feedback">
-                   Excelente!
-                </div>
-              </div>
-
-              
-              <div class="col-md-12 mb-3">
-                <label for="validationServer02">Procedimiento</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
-                <div class="valid-feedback">
-                   Excelente!
-                </div>
-              </div>
-
-              <div class="col-md-12 mb-3">
-                <label for="validationServer02">Detalle</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
-                <div class="valid-feedback">
-                   Excelente!
-                </div>
-              </div>
-
-              <div class="col-md-12 mb-3">
-                <label for="validationServer02">Fecha</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
-                <div class="valid-feedback">
-                   Excelente!
-                </div>
-              </div>
-
-              <div class="col-md-12 mb-3">
-                <label for="validationServer02">Hora</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
-                <div class="valid-feedback">
-                   Excelente!
-                </div>
-              </div>
-
-              <div class="col-md-12 mb-3">
-                <label for="validationServer02">Estado</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
-                <div class="valid-feedback">
-                   Excelente!
-                </div>
-              </div>
-
-              <div class="col-md-12 mb-3">
-                <label for="validationServer02">Observación</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
-                <div class="valid-feedback">
-                   Excelente!
-                </div>
-              </div>
+             
 
                 <div class="modal-footer">
                     <button class="btn col-md-12" type="submit">Guardar</button>
