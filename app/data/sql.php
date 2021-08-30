@@ -36,7 +36,7 @@
 
         #Update funcionarios
         public function UpdateFuncionario($funcionario_cedula, $funcionario_procedimiento, $funcionario_cargo, $funcionario_nombres, $funcionario_contacto, $funcionario_correo){
-            $resultado = $this->bd->query("UPDATE FUNCIONARIOS_IMAGEN SET CED_FUN='$funcionario_cedula', NOMBRE_PROCE='$funcionario_procedimiento', NOMBRE_CARGO='$funcionario_cargo', NOMBRE_COMPLETOS='$funcionario_nombres', CELULAR='$funcionario_contacto', CORREO='$funcionario_correo' WHERE CED_FUN = '$funcionario_cedula'");
+            $resultado = $this->bd->query("UPDATE FUNCIONARIOS_IMAGEN SET CED_FUN='$funcionario_cedula', NOMBRE_PROCE='$funcionario_procedimiento', NOMBRE_CARGO='$funcionario_cargo', NOMBRE_COMPLETOS='$funcionario_nombres', CELULAR='$funcionario_contacto', CORREO='$funcionario_correo' WHERE CED_FUN='$funcionario_cedula'");
             return $resultado;
         }
 
@@ -62,6 +62,12 @@
         #Consultar citas
         public function ConsultarCitas(){
             $resultado = $this->bd->query("SELECT * FROM CITA");
+            return $resultado;
+        }
+
+        #Consultar cargos
+        public function ConsultarCargo(){
+            $resultado = $this->bd->query("SELECT * FROM CARGOS");
             return $resultado;
         }
       

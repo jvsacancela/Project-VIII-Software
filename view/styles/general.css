@@ -24,3 +24,7 @@
 .desc:hover{
     color: var(--color-secundario-hover);
 }
+
+input, option, select, td{
+    text-transform: uppercase;
+}

@@ -9,13 +9,20 @@
       <div class="modal-body">
         <form action="procedimiento_add.php" method="POST">
             <div class="form-row">
-              <div class="col-md-12 mb-3">
+
+              <div class="row col-md-12 mb-3">
+                <div class="col-md-4 m-auto">
                 <label for="validationServer01">Cédula paciente</label>
+                </div>
+                
+                <div class="col-md-8">
                 <input type="text"   class="form-control " id="validationServer01" required name="cliente-id">
                 <div class="valid-feedback">
                   Excelente!
                 </div>
               </div>
+                </div>
+                
 
              
 

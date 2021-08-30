@@ -53,41 +53,12 @@ $consulta_cita = $consulta->ConsultarCitas();
 
       </nav>
 
-    <div class="container-fluid px-4">
-
-    <!--TARJETAS-->
-
-    <!--
-      <div class="row g-3 my-2">
-
-          <div class="col-md-4">
-            <div class="p-3 shadow-sm d-flex justify-content-around align-items-center rounded" id="infocard">
-              <div><h3>Funcionarios</h3></div>
-              <h1>500</h1>
-            </div>
-          </div>
-          
-
-          <div class="col-md-4">
-            <div class="p-3 shadow-sm d-flex justify-content-around align-items-center rounded" id="infocard">
-              <div><h3>Pacientes</h3></div>
-              <h1>300</h1>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="p-3 shadow-sm d-flex justify-content-around align-items-center rounded" id="infocard">
-              <div><h3>Citas</h3></div>
-              <h1>340</h1>
-            </div>
-          </div>
-
-      </div>
-    -->
+      <div class="container-fluid px-4">
 
         <div class="row my-5 col-md-12 m-auto shadow p-3 mb-5 bg-white rounded">
           <h3 class="fs-4 mb-3"><a href="" id="btnExport"><i class="icon ion-md-open"></i></a>Citas médicas</h3>
           <hr>
+
           <div>
             <div>
               <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-cita-add"><i class="icon ion-md-pulse"></i>Nueva cita</a>
@@ -98,11 +69,11 @@ $consulta_cita = $consulta->ConsultarCitas();
             <div>
                 <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-cita-notificar"><i class="icon ion-md-pulse"></i>Notificar citas</a>
               <?php include('screen/modal-cita-notificar.php') ?>
-            </div> 
+</div> 
           </div>
           
           <hr>
-
+        
           <div class="col" >
             <div class="table-responsive">
               <table class="table table-hover text-center" id="tabla">
@@ -157,10 +128,8 @@ $consulta_cita = $consulta->ConsultarCitas();
             </div>
           </div>
         </div>
-      </div>
-
-    </div>    
-  </div>
+      </div>    
+    </div>
 
  
 
