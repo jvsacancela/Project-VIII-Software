@@ -91,6 +91,11 @@ $consulta_cita = $consulta->ConsultarCitas();
           <div >
             <hr>
             <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-cita-add"><i class="icon ion-md-pulse"></i>Nueva cita</a>
+
+            <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-cita-add"><i class="icon ion-md-pulse"></i>Notificar citas</a>
+
+            <a class="col-sm-2" id="btnAdd" data-bs-toggle="modal" data-bs-target="#modal-cita-add"><i class="icon ion-md-pulse"></i>Evento</a>
+
             <?php include('screen/modal-cita-add.php')?>
             <!--<input class="col-sm-4" type="text" value="Buscar">-->
           </div> 

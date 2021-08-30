@@ -9,7 +9,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <a class="desc" href="../../app/php/procedimiento_delete.php?NOMBRE_PROCE=<?php echo $display['CED_FUN']?>"><i class="icon ion-md-checkmark"></i>Si, eliminar funcionario.</a>
+      <a class="desc" href="../../app/php/funcionario_delete.php?FUN_CED=<?php echo $display['CED_FUN']?>"><i class="icon ion-md-checkmark"></i>Si, eliminar funcionario.</a>
 
       </div>
     </div>

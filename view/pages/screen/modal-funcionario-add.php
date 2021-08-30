@@ -7,11 +7,11 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="procedimiento_add.php" method="POST">
+        <form action="../../app/php/funcionario_add.php" method="POST">
             <div class="form-row">
               <div class="col-md-12 mb-3">
                 <label for="validationServer01">Cédula</label>
-                <input type="text"   class="form-control " id="validationServer01" required name="cliente-id">
+                <input type="text"   class="form-control " id="validationServer01" required name="funcionario-cedula">
                 <div class="valid-feedback">
                   Excelente!
                 </div>
@@ -19,7 +19,7 @@
 
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">Procedimiento</label>
-                <input type="text" class="form-control" id="validationServer02" required name="cliente-nombre">
+                <input type="text" class="form-control" id="validationServer02" required name="funcionario-procedimiento">
                 <div class="valid-feedback">
                    Excelente!
                 </div>
@@ -27,7 +27,7 @@
 
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">Cargo</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
+                <input type="text" class="form-control" id="validationServer02"  required name="funcionario-cargo">
                 <div class="valid-feedback">
                    Excelente!
                 </div>
@@ -35,7 +35,7 @@
 
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">Nombres completos</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
+                <input type="text" class="form-control" id="validationServer02"  required name="funcionario-nombres">
                 <div class="valid-feedback">
                    Excelente!
                 </div>
@@ -43,7 +43,7 @@
 
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">Contacto</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
+                <input type="text" class="form-control" id="validationServer02"  required name="funcionario-contacto">
                 <div class="valid-feedback">
                    Excelente!
                 </div>
@@ -51,8 +51,8 @@
 
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">Correo electrónico</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
-                <div class="valid-feedback">
+                <input type="text" class="form-control" id="validationServer02"  required name="funcionario-correo">
+                <div class="valid-feedback" >
                    Excelente!
                 </div>
               </div>
