@@ -16,6 +16,7 @@ $consulta_cita = $consulta->ConsultarCitas();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio</title>
     <?php include ('../includes/links.php')?>
+
 </head>
 <body>
    
@@ -135,4 +136,23 @@ $consulta_cita = $consulta->ConsultarCitas();
 
   <?php include ('../includes/scripts.php')?>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
 </html>
+<script>
+$(document).ready(function() {
+  $('#notificacion').change(function(e) {
+    if ($(this).val() === "recordatorio") {
+      $('#a').prop("disabled", true);
+      $('#b').prop("disabled", true);
+      $('#c').prop("disabled", true);
+
+    } else {
+      $('#a').prop("disabled", false);
+      $('#b').prop("disabled", false);
+      $('#c').prop("disabled", false);
+    }
+  })
+});
+</script>
+
