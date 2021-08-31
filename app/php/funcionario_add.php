@@ -24,5 +24,7 @@
             $insertar_funcionario = $insertar->AddFuncionario($funcionario_cedula, $funcionario_procedimiento, $funcionario_cargo, $funcionario_nombres, $funcionario_contacto, $funcionario_correo);
     
             header ('Location: ../../view/pages/page-funcionarios.php');
-        } 
+        }
+        
+        
     }?>
