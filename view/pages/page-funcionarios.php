@@ -55,7 +55,6 @@ $consulta_funcionarios = $consulta->ConsultarFuncionarios();
 
     <div class="container-fluid px-4">
 
-
         <div class="row my-5 col-md-12 m-auto shadow p-3 mb-5 bg-white rounded">
           <h3 class="fs-4 mb-3"><a href="" id="btnExport"><i class="icon ion-md-open"></i></a>Funcionarios</h3>
 

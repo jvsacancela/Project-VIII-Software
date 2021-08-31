@@ -6,11 +6,16 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="procedimiento_edit.php" method="POST">
+        <form action="../../app/php/procedimiento_update.php" method="POST">
             <div class="form-row">
               <div class="col-md-12 mb-3">
                 <label for="validationServer01">Nombre del procedimiento</label>
-                <input type="text"  class="form-control " id="validationServer01" required name="cliente-id" value="<?php echo $display['NOMBRE_PROCE'] ?>">
+                <input type="text"  class="form-control " id="validationServer01" required name="procedimiento-nombre" value="<?php echo $display['NOMBRE_PROCE'] ?>">
+
+                <input style="display:none;" type="text"  class="form-control " id="validationServer01" required name="procedimiento-id" value="<?php echo $display['PROCE_ID'] ?>">
+
+                
+
                 <div class="valid-feedback">
                   Excelente!
                 </div>
@@ -18,7 +23,7 @@
 
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">Tiempo de tratamiento</label>
-                <input type="time" class="form-control" id="validationServer02" required name="cliente-nombre" value="<?php echo $display['TIEMPO'] ?>">
+                <input type="time" class="form-control" id="validationServer02" required name="procedimiento-hora" value="<?php echo $display['TIEMPO'] ?>">
                 <div class="valid-feedback">
                    Excelente!
                 </div>

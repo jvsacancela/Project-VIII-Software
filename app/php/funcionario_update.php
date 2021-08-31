@@ -11,10 +11,9 @@
     $funcionario_nombres = $_POST['funcionario-nombres'];
     $funcionario_contacto = $_POST['funcionario-contacto'];
     $funcionario_correo = $_POST['funcionario-correo'];
-    
-    
+
     $update_funcionario = $update->UpdateFuncionario($funcionario_cedula, $funcionario_procedimiento, $funcionario_cargo, $funcionario_nombres, $funcionario_contacto, $funcionario_correo);
-    
+
     header ('Location: ../../view/pages/page-funcionarios.php');
     
     ?>

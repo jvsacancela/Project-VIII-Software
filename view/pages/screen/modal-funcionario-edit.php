@@ -14,10 +14,10 @@ $consulta_cargo = $consulta-> ConsultarCargo();
         <form action="../../app/php/funcionario_update.php" method="POST">
             <div class="form-row">
 
-              <div class="col-md-12 mb-3">
+            <div class="col-md-12 mb-3">
                 <label for="validationServer01">Cédula</label>
-                <input type="text"   class="form-control text-uppercase" id="validationServer01" required value="<?php echo $display['CED_FUN'] ?>" name="funcionario-cedula">
-                <div class="valid-feedback" >
+                <input type="text"   class="form-control text-uppercase" id="validationServer01" required name="funcionario-cedula" value="<?php echo $display['CED_FUN'] ?>">
+                <div class="valid-feedback">
                   Excelente!
                 </div>
               </div>
@@ -52,15 +52,15 @@ $consulta_cargo = $consulta-> ConsultarCargo();
 
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">Nombres completos</label>
-                <input type="text" class="form-control text-uppercase" id="validationServer02"  required  value="<?php echo $display['NOMBRE_COMPLETOS'] ?>" name="funcionario-nombres">
-                <div class="valid-feedback" >
+                <input type="text" class="form-control text-uppercase" id="validationServer02"  required name="funcionario-nombres" value="<?php echo $display['NOMBRE_COMPLETOS'] ?>">
+                <div class="valid-feedback">
                    Excelente!
                 </div>
               </div>
 
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">Contacto</label>
-                <input type="text" class="form-control text-uppercase" id="validationServer02"  required  value="<?php echo $display['CELULAR'] ?>" name="funcionario-contacto">
+                <input type="text" class="form-control text-uppercase" id="validationServer02"  required name="funcionario-contacto" value="<?php echo $display['CELULAR'] ?>" >
                 <div class="valid-feedback">
                    Excelente!
                 </div>
@@ -68,8 +68,8 @@ $consulta_cargo = $consulta-> ConsultarCargo();
 
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">Correo electrónico</label>
-                <input type="text" class="form-control text-uppercase" id="validationServer02"  required  value="<?php echo $display['CORREO'] ?>" name="funcionario-correo">
-                <div class="valid-feedback">
+                <input type="text" class="form-control text-uppercase" id="validationServer02"  required name="funcionario-correo" value="<?php echo $display['CORREO'] ?>">
+                <div class="valid-feedback" >
                    Excelente!
                 </div>
               </div>
