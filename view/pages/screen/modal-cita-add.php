@@ -92,7 +92,14 @@
 
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">Estado</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
+                <select name="funcionario-cargo" id="slcat2" class="form-control">
+                  <option selected  disabled value="">--SELECCIONAR ESTADO--</option>
+                    <option value="PEDIENTE">PENDIENTE</option>                         
+                    <option value="CADUCADO">CADUCADO</option>                         
+                    <option value="FINALIZADO">FINALIZADO</option>                         
+                    <option value="CANCELADO">CANCELADO</option>                         
+                    <option value="REAGENDADO">REAGENDADO</option>                         
+                  </select> 
                 <div class="valid-feedback">
                    Excelente!
                 </div>
