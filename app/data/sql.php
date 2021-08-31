@@ -120,6 +120,22 @@
             $resultado = $this->bd->query("SELECT * FROM CARGOS");
             return $resultado;
         }
+        
+        #Consultar Correos
+        public function ConsultaCorreos($date_now,$date_future){
+            $resultado = $this->bd->query("SELECT * FROM CITA WHERE FECHA BETWEEN '$date_now' AND '$date_future'");
+            return $resultado;
+        }
+        public function ConsultaCorreos1($date_past){
+            $resultado = $this->bd->query("SELECT * FROM CITA WHERE FECHA='$date_past' AND ESTADO='Pendiente'");
+            return $resultado;
+        }
+        public function ActualizarEstado($cod){
+            $resultado = $this->bd->query("UPDATE CITA  set ESTADO='Caducada' WHERE COD_CITA = '$cod'");
+            return true;
+
+        }
+
       
     }
 

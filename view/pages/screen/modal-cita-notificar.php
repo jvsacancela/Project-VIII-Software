@@ -17,7 +17,6 @@
                 <select  class="form-select" name="notificacion" id="notificacion">
                   <option value="recordatorio">Recordatorio de citas</option>
                   <option value="Cancelado">Cancelacion de citas</option>
-                  <option value="Caducada">Perdidas de citas</option>
                 </select>
                 </div>
               </div>
