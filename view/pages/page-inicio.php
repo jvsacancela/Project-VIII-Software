@@ -136,11 +136,10 @@ $consulta_cita = $consulta->ConsultarCitas();
  
 
   <?php include ('../includes/scripts.php')?>
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
-</html>
-<script>
+
+  
+  <script>
 $(document).ready(function() {
   $('#notificacion').change(function(e) {
     if ($(this).val() === "recordatorio") {
@@ -156,4 +155,10 @@ $(document).ready(function() {
   })
 });
 </script>
+
+</body>
+
+
+</html>
+
 
