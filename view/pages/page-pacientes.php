@@ -87,6 +87,9 @@ $consulta_pacientes = $consulta->ConsultarPacientes();
                   <?php while($display = $consulta_pacientes->fetch_assoc()){ ?>
                   <tr class="text-uppercase">
                     <td>
+                    
+                    <a  data-bs-toggle="modal" data-bs-target="#modal-cita-add2<?php echo $display['CED_PA']?>" id="btnEdit"><i class="icon ion-md-calendar"></i></a>
+
                     <a  data-bs-toggle="modal" data-bs-target="#modal-paciente-edit<?php echo $display['CED_PA']?>" id="btnEdit"><i class="icon ion-md-create"></i></a>
 
                     <a data-bs-toggle="modal" data-bs-target="#modal-paciente-delete<?php echo $display['CED_PA'] ?>"  id="btnDelete" ><i class="icon ion-md-trash"></i></a>
@@ -100,6 +103,7 @@ $consulta_pacientes = $consulta->ConsultarPacientes();
                     <td><?php echo $display['DIRECCION']; ?></td>
                   </tr>
                   <?php 
+                      include('screen/modal-cita-add2.php');
                       include('screen/modal-paciente-delete.php');
                       include('screen/modal-paciente-edit.php');
                       

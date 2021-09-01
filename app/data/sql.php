@@ -16,6 +16,18 @@
             return $resultado;
         }
 
+        #Consultar funcionario por procedimiento id
+        public function ConsultaFuncionarioProce($procedimiento_name){
+            $resultado = $this->bd->query("SELECT CED_FUN, NOMBRE_COMPLETOS FROM FUNCIONARIOS_IMAGEN WHERE NOMBRE_PROCE = '$procedimiento_name'");
+            return $resultado;
+        }
+
+         #Consultar funcionario por procedimiento RANDOM
+         public function ConsultaFuncionarioProce1($procedimiento_name){
+            $resultado = $this->bd->query("SELECT COUNT(NOMBRE_PROCE) FROM FUNCIONARIOS_IMAGEN WHERE NOMBRE_PROCE = '$procedimiento_name'");
+            return $resultado;
+        }
+
         # Agregar funcionarios
         public function AddFuncionario($funcionario_cedula, $funcionario_procedimiento, $funcionario_cargo, $funcionario_nombres, $funcionario_contacto, $funcionario_correo){
             $resultado = $this->bd->query("INSERT INTO FUNCIONARIOS_IMAGEN(CED_FUN, NOMBRE_PROCE, NOMBRE_CARGO, NOMBRE_COMPLETOS, CELULAR, CORREO) VALUES ('$funcionario_cedula', '$funcionario_procedimiento', '$funcionario_cargo', '$funcionario_nombres', '$funcionario_contacto', '$funcionario_correo')");
@@ -25,6 +37,12 @@
         #Funcionario ID
         public function ConsultarFuncionarioID($funcionario_cedula){
             $resultado = $this->bd->query("SELECT * FROM FUNCIONARIOS_IMAGEN WHERE CED_FUN = '$funcionario_cedula'");
+            return $resultado;
+        }
+
+        #Procedimiento Name
+        public function ConsultarProcedimientoFuncionario($procedimiento_name){
+            $resultado = $this->bd->query("SELECT * FROM FUNCIONARIOS_IMAGEN WHERE NOMBRE_PROCE = '$procedimiento_name'");
             return $resultado;
         }
 
@@ -84,12 +102,6 @@
             return true;
         }
 
-        #Procedimiento Name
-        public function ConsultarProcedimientoName($procedimiento_name){
-            $resultado = $this->bd->query("SELECT * FROM PROCEDIMIENTO WHERE NOMBRE_PROCE = '$procedimiento_name'");
-            return $resultado;
-        }
-
         #Contar Procedimiento
         public function ContarProcedimientos(){
             $resultado = $this->bd->query("SELECT COUNT(PROCE_ID) FROM PROCEDIMIENTO");
@@ -107,6 +119,12 @@
             $resultado = $this->bd->query("UPDATE PROCEDIMIENTO SET NOMBRE_PROCE='$procedimiento_nombre', TIEMPO='$procedimiento_hora'
             WHERE PROCE_ID = '$procedimiento_id'");
             return $resultado;
+        }
+
+        #Agregar Cita
+        public function AddCita($cedula_paciente, $cedula_usuario, $cedula_funcionario, $numero_historia, $numero_orden, $nombre_paciente, $nombre_funcionario, $procedimiento, $detalle, $estado, $observacion, $ct_email, $ct_fono, $ct_usuario, $fecha, $hora){
+            $resultado = $this->bd->query("INSERT INTO CITA(CED_PA, CED_USU, CED_FUN, NUMERO_HISTORIA, NUMERO_DE_ORDEN, NOMBRE_PA, NOMBRE_FUN, PROCEDIMIENTOS, DETALLE_PRO, ESTADO, OBSERVACION, CT_EMAIL, CT_FONO, CT_USUARIO, FECHA, HORA) VALUES ('$cedula_paciente', '$cedula_usuario', '$cedula_funcionario', '$numero_historia', '$numero_orden', '$nombre_paciente', '$nombre_funcionario', '$procedimiento', '$detalle','$estado', '$observacion', '$ct_email', '$ct_fono', '$ct_usuario', '$fecha', '$hora')");
+            return true;
         }
 
         #Consultar citas

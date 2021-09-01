@@ -137,10 +137,8 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos()
  
 
   <?php include ('../includes/scripts.php')?>
-</body>
-
-</html>
-<script>
+  
+  <script>
 $(document).ready(function() {
   $('#notificacion').change(function(e) {
     if ($(this).val() === "recordatorio") {
@@ -159,4 +157,10 @@ $(document).ready(function() {
   })
 });
 </script>
+
+</body>
+
+
+</html>
+
 
