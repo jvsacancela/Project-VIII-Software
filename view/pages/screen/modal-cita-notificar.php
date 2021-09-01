@@ -22,22 +22,34 @@
               </div>
               <div class=" col-md-12 mb-3">
                 <label for="validationServer01">Fecha Inicial</label>
-                <input class="form-control" type="date" disabled="disabled" id="a" ></input>
+                <input class="form-control" type="date" name="fecha1" disabled="disabled" id="a" ></input>
                 <div class="valid-feedback">
                    Excelente!
                 </div>
               </div>
               <div class=" col-md-12 mb-3">
                 <label for="validationServer01">Fecha Final</label>
-                <input class="form-control" type="date" disabled="disabled" id="b" ></input>
+                <input class="form-control" type="date" name="fecha2" disabled="disabled" id="b" ></input>
                 <div class="valid-feedback">
                    Excelente!
                 </div>
               </div>
-           
+              <div class="row col-md-12 mb-3">
+                <div class="col-md-5 m-auto">
+                <label for="validationServer01">Tipo de Notificacion</label>
+                </div>
+                <div class="col-md-7 ">
+                <select  class="form-select" disabled="disabled" name="procedimiento" id="d">
+                <?php while($fic = $consulta_procedimiento->fetch_assoc()){?>
+                        <option value="<?php echo $fic['NOMBRE_PROCE']?>"><?php echo $fic['NOMBRE_PROCE']?></option>
+                    <?php } ?>
+                </select>
+                </div>
+              </div>
+              
               <div class=" col-md-12 mb-3">
                 <label for="validationServer01">Mensaje</label>
-                <textarea class="form-control" id="c" disabled="disabled" placeholder="Obligatorio"></textarea>
+                <textarea class="form-control" id="c" disabled="disabled"  name="mensaje" placeholder="Obligatorio"></textarea>
                 <div class="valid-feedback">
                    Excelente!
                 </div>
