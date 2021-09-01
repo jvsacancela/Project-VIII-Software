@@ -6,6 +6,7 @@ require_once "../../app/data/sql.php";
 $consulta = new sql();
 
 $consulta_cita = $consulta->ConsultarCitas();
+$consulta_procedimiento = $consulta->ConsultarProcedimientos()
 
 ?>
 <!DOCTYPE html>
@@ -137,7 +138,6 @@ $consulta_cita = $consulta->ConsultarCitas();
 
   <?php include ('../includes/scripts.php')?>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
 </html>
 <script>
@@ -147,11 +147,14 @@ $(document).ready(function() {
       $('#a').prop("disabled", true);
       $('#b').prop("disabled", true);
       $('#c').prop("disabled", true);
+      $('#d').prop("disabled", true);
 
     } else {
       $('#a').prop("disabled", false);
       $('#b').prop("disabled", false);
       $('#c').prop("disabled", false);
+      $('#d').prop("disabled", false);
+
     }
   })
 });

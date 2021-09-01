@@ -131,7 +131,17 @@
             return $resultado;
         }
         public function ActualizarEstado($cod){
-            $resultado = $this->bd->query("UPDATE CITA  set ESTADO='Caducada' WHERE COD_CITA = '$cod'");
+            $resultado = $this->bd->query("UPDATE CITA  set ESTADO='Expirado' WHERE COD_CITA = '$cod'");
+            return true;
+
+        }
+        #Consulta correos cancelacion
+        public function ConsultaCorreosCancelar($fechai,$fechaf,$proce){
+            $resultado = $this->bd->query("SELECT * FROM CITA WHERE FECHA BETWEEN '$fechai' AND '$fechaf' AND ESTADO='Pendiente' AND PROCEDIMIENTOS='$proce'");
+            return $resultado;
+        }
+        public function ActualizarEstadocancelado($cod,$obs){
+            $resultado = $this->bd->query("UPDATE CITA  set ESTADO='Cancelado', OBSERVACION='$obs' WHERE COD_CITA = '$cod'");
             return true;
 
         }
