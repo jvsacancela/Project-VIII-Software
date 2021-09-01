@@ -145,6 +145,21 @@
             return true;
 
         }
+        #Reagendar cita canceladas
+        public function AddPacienteCancelado($procedimiento_id, $procedimiento_nombre, $procedimiento_hora){
+            $resultado = $this->bd->query("INSERT INTO PROCEDIMIENTO(PROCE_ID, NOMBRE_PROCE, TIEMPO) VALUES ('$procedimiento_id','$procedimiento_nombre', '$procedimiento_hora')");
+            return true;
+        }
+        public function ConsultaCitaUltimo($pro){
+            $resultado = $this->bd->query("SELECT TOP 1 * FROM CITA ORDER BY COD_CITA DESC ");
+            return $resultado;
+        }
+        #consultar procedimientos time
+        #Procedimiento Name
+        public function ConsultarProcedimientoTime($pro){
+            $resultado = $this->bd->query("SELECT * FROM PROCEDIMIENTO WHERE NOMBRE_PROCE = '$pro'");
+            return $resultado;
+        }
 
       
     }

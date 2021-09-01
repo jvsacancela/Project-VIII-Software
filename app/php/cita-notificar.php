@@ -11,6 +11,7 @@ $date_future = strtotime('+1 day', strtotime($date_now));
 echo $date_future = date('Y-m-d', $date_future);
 $date_past = strtotime('-1 day', strtotime($date_now));
 echo $date_past = date('Y-m-d', $date_past);
+
 $a=$_POST['notificacion'];
 //$a="recordatorio";
 //envio de recordatorios
@@ -72,8 +73,8 @@ if($a=="recordatorio"){
     if($a=="Cancelado"){
         //$fechai=$_POST['fecha1'];
         //$fechaf=$_POST['fecha2'];
-        $fechai= "2021-08-31";
-        $fechaf= "2021-08-31";
+        $fechai= "2021-09-01";
+        $fechaf= "2021-09-01";
         $mensaje=$_POST['mensaje'];
         $obs= "Reagendado por: ". $mensaje;
         $proce=$_POST['procedimiento'];
@@ -110,21 +111,67 @@ if($a=="recordatorio"){
               mail($corr,$asunto,$msg);
 
         }
-        /*foreach ($game as $vall) {
-            $funcionario_cedula = $_POST['funcionario-cedula'];
-            $funcionario_procedimiento = $_POST['funcionario-procedimiento'];
-            $funcionario_cargo = $_POST['funcionario-cargo'];
-            $funcionario_nombres = $_POST['funcionario-nombres'];
-            $funcionario_contacto = $_POST['funcionario-contacto'];
-            $funcionario_correo = $_POST['funcionario-correo'];
+
+       foreach ($game as $vall) {
+            $pro=$vall['procedimientos'];
+            echo $date_noww = date('Y-m-d');
+            echo $hora_noww = date('H:i:s');
+            $date_future = strtotime('+1 day', strtotime($date_noww));
+            echo $date_future = date('Y-m-d', $date_future);
+
+            $result_cor = $clase_corr->ConsultaCitaUltimo($pro);
+            $result_time = $clase_corr->ConsultarProcedimientoTime($pro);
+  
+            if($result_cor->num_rows>0){
+        /*$roww =mysqli_fetch_array($result_time);
+            $tiempo = $roww['TIEMPO'];
+            $row =mysqli_fetch_array($result_cor);
+            $fecha_u = $row['FECHA'];
+            $hora_u = $row['HORA'];*/
+            $fechaf=$fecha_u." ".$hora_u;
+            $h= substr( $roww['TIEMPO'],0,-6);
+            $m= substr( $roww['TIEMPO'],3,-3);
+            $newtime= $h.'H'.$m.'M';
+            $intervalo = new DateInterval('PT'.$newtime); // intervalo de tiempo 19 horas y 30 min
+
+            echo $fechaf->format('Y-m-d h:i:s');
+
+            $fechaf->add($intervalo);
+            echo $fechaf->format('Y-m-d h:i:s a');
+            }else{
+                echo "hoa";
+            }
+            if($result_time->num_rows>0){
+                echo "esto si vale";
+            }else{
+                echo "hoa";
+            }
 
            
-    }*/
 
 
+           /* if($result_cor->num_rows>0){ 
+                   
+            $cedp= $vall['cedulap'];
+            $cedu=$vall['cedulau'];
+            $cedf=$vall['cedulaf'];
+            $numh=$vall['numh'];
+            $numo=$vall['numo'];
+            $nomp=$vall['nomp'];
+            $numf=$vall['nomf';
+            $det=$vall['detalle'];
+            $fe=$vall['fecha'];
+            $ho=$vall['hora'];
+            $obs=$vall['obs'];
+            $email=$vall['email'];
+            $cor=$vall['cor'];
+            $insertar_procedimiento = $clase_corr->AddPacienteCancelado($procedimiento_id, $procedimiento_nombre, $procedimiento_hora);
+           
 
+            }*/
 
-        
+          }
+
         }else{
             echo "no hay registros";
         }
