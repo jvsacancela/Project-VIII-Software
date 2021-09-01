@@ -133,7 +133,6 @@
         public function ActualizarEstado($cod){
             $resultado = $this->bd->query("UPDATE CITA  set ESTADO='Expirado' WHERE COD_CITA = '$cod'");
             return true;
-
         }
         #Consulta correos cancelacion
         public function ConsultaCorreosCancelar($fechai,$fechaf,$proce){
