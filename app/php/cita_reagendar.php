@@ -37,7 +37,7 @@
         echo "no existe";
 
         $roww =mysqli_fetch_array($result_time);
-         $tiempo = $roww['TIEMPO'];
+        $tiempo = $roww['TIEMPO'];
         
 
         echo $date_noww = date('Y-m-d');
@@ -70,18 +70,18 @@
 
     $detalle = $_POST['cita-detalle'];
     $estado = "Pendiente";
-    $observacion = "Modificado";
+    $observacion = "Reagendado";
     $ct_email = $_POST['cliente-correo'];
     $ct_fono = $_POST['cliente-telefono'];
     $ct_usuario = $_POST['usuario-nombre'];
 
     
-    $fecha = $_POST['c_fecha'];;
-    $hora = $_POST['c_hora'];;
+    $fecha = $fecha_agendar;
+    $hora = $tiempo_agendar;
     
     $update_cita = $insertar->UpdateCita($cita_id, $cedula_paciente, $cedula_usuario, $cedula_funcionario, $numero_historia, $numero_orden, $nombre_paciente, $nombre_funcionario, $procedimiento, $detalle, $estado, $observacion, $ct_email, $ct_fono, $ct_usuario, $fecha, $hora);
     
-    header ('Location: ../../view/pages/page-citas.php');
+    //header ('Location: ../../view/pages/page-citas.php');
     
     ?>
 

@@ -133,9 +133,16 @@
             return $resultado;
         }
 
-         #Consultar citas
+         #Consultar citas hoy
          public function ConsultarCitasHoy($fecha_hoy){
             $resultado = $this->bd->query("SELECT * FROM CITA WHERE FECHA = '$fecha_hoy' ORDER BY HORA ASC");
+            return $resultado;
+        }
+
+        #Update citas
+        public function UpdateCita($cita_id, $cedula_paciente, $cedula_usuario, $cedula_funcionario, $numero_historia, $numero_orden, $nombre_paciente, $nombre_funcionario, $procedimiento, $detalle, $estado, $observacion, $ct_email, $ct_fono, $ct_usuario, $fecha, $hora){
+            $resultado = $this->bd->query("UPDATE CITA SET CED_PA='$cedula_paciente', CED_USU='$cedula_usuario', CED_FUN='$cedula_funcionario', NUMERO_HISTORIA='$numero_historia', NUMERO_DE_ORDEN='$numero_orden', NOMBRE_PA='$nombre_paciente', NOMBRE_FUN='$nombre_funcionario', PROCEDIMIENTOS='$procedimiento', DETALLE_PRO='$detalle', ESTADO='$estado', OBSERVACION='$observacion', CT_EMAIL='$ct_email', CT_FONO='$ct_fono', CT_USUARIO='$ct_usuario', FECHA='$fecha', HORA='$hora'
+            WHERE COD_CITA = '$cita_id'");
             return $resultado;
         }
 
@@ -173,6 +180,7 @@
             $resultado = $this->bd->query("INSERT INTO PROCEDIMIENTO(PROCE_ID, NOMBRE_PROCE, TIEMPO) VALUES ('$procedimiento_id','$procedimiento_nombre', '$procedimiento_hora')");
             return true;
         }
+
         public function ConsultaCitaUltimo($pro){
             $resultado = $this->bd->query("SELECT * FROM  CITA WHERE PROCEDIMIENTOS ='$pro' ORDER BY COD_CITA DESC LIMIT 1  ");
             return $resultado;

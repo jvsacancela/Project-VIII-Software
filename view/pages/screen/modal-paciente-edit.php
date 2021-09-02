@@ -1,3 +1,7 @@
+<div>
+
+
+
 
 <div class="modal fade" id="modal-paciente-edit<?php echo $display['CED_PA']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable">
@@ -73,4 +77,7 @@
       </div>
     </div>
   </div>
+</div>
+
+
 </div>

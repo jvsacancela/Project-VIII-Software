@@ -40,7 +40,7 @@ $consulta_usu_name = $consulta->ConsultarNameUsu($ced_usu)->fetch_assoc();
         <div class="d-flex align-items-center">
         <i class="icon ion-md-reorder" id="menu"></i>
 
-          <h3 id="tit" class="fs-2 m-0">Citas médicas</h3>
+          <h3 id="tit" class="fs-2 m-0">Historial citas médicas</h3>
         </div>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -94,9 +94,13 @@ $consulta_usu_name = $consulta->ConsultarNameUsu($ced_usu)->fetch_assoc();
                 <?php while($display = $consulta_cita->fetch_assoc()){ ?>
                   <tr class="text-uppercase">
                     <td>
+                    
+
                     <a href="javascript:popUp('screen/ticket.php?cod_cita=<?php echo $display['COD_CITA']?>')"><i class="icon ion-md-print"></i></a>
                     
                     <a  data-bs-toggle="modal" data-bs-target="#modal-cita-edit<?php echo $display['COD_CITA']?>" id="btnEdit"><i class="icon ion-md-create"></i></a>
+
+                    <a data-bs-toggle="modal" data-bs-target="#modal-cita-reagendar<?php echo $display['COD_CITA'] ?>"><i class="icon ion-md-document"></i></a>
 
                     <!--<a data-bs-toggle="modal" data-bs-target="#modal-cita-delete<?php //echo $display['COD_CITA'] ?>"  id="btnDelete" ><i class="icon ion-md-trash"></i></a>-->
                     </td>
@@ -111,8 +115,11 @@ $consulta_usu_name = $consulta->ConsultarNameUsu($ced_usu)->fetch_assoc();
                     <td><b><?php echo $display['OBSERVACION']; ?></b></td>
                   </tr>
                   <?php 
-                      include('screen/modal-cita-delete.php');
+                      
+                      include('screen/modal-cita-reagendar.php');
                       include('screen/modal-cita-edit.php');
+                     
+                      
                       
                    } ?>
                 </tbody>

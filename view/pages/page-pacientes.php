@@ -98,9 +98,9 @@ $consulta_usu_name = $consulta->ConsultarNameUsu($ced_usu)->fetch_assoc();
 
                     <a  data-bs-toggle="modal" data-bs-target="#modal-cita-add<?php echo $display['CED_PA']?>"><i class="icon ion-md-calendar"></i></a>
                     
-                    <a  data-bs-toggle="modal2" data-bs-target="#modal-paciente-edit<?php echo $display['CED_PA']?>" id="btnEdit"><i class="icon ion-md-create"></i></a>
+                    <a  data-bs-toggle="modal" data-bs-target="#modal-paciente-edit<?php echo $display['CED_PA']?>" id="btnEdit"><i class="icon ion-md-create"></i></a>
                   
-                    <a data-bs-toggle="modal1" data-bs-target="#modal-paciente-delete<?php echo $display['CED_PA']?>"  id="btnDelete" ><i class="icon ion-md-trash"></i></a>
+                    <a data-bs-toggle="modal" data-bs-target="#modal-paciente-delete<?php echo $display['CED_PA']?>"  id="btnDelete" ><i class="icon ion-md-trash"></i></a>
                     </td>
                     <td ><?php echo $display['CED_PA']; ?></td>
                     <td><?php echo $display['NUMERO_HISTORIA']; ?></td>
@@ -112,9 +112,10 @@ $consulta_usu_name = $consulta->ConsultarNameUsu($ced_usu)->fetch_assoc();
                     
                   </tr>
                   <?php  
-                  include('screen/modal-cita-add.php');
+                  
                   include('screen/modal-paciente-delete.php');
                   include('screen/modal-paciente-edit.php');
+                  include('screen/modal-cita-add.php');
                    
                  
                     
