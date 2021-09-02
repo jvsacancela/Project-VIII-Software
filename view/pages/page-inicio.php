@@ -114,7 +114,7 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos()
 
                     <a  data-bs-toggle="modal" data-bs-target="#modal-cita-edit<?php echo $display['COD_CITA']?>" id="btnEdit"><i class="icon ion-md-create"></i></a>
 
-                    <a data-bs-toggle="modal" data-bs-target="#modal-cita-delete<?php echo $display['COD_CITA'] ?>"  id="btnDelete" ><i class="icon ion-md-trash"></i></a>
+                    <!--<a data-bs-toggle="modal" data-bs-target="#modal-cita-delete<?php //echo $display['COD_CITA'] ?>"  id="btnDelete" ><i class="icon ion-md-trash"></i></a>-->
                     </td>
                     <td><b><?php echo $display['ESTADO']; ?></b></td>
                     <td><?php echo $display['HORA']; ?></td>

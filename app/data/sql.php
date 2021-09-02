@@ -223,8 +223,7 @@
             $resultado = $this->bd->query("SELECT * FROM USUARIO  
                                             WHERE CED_USU='$cedula' 
                                             AND CONTRASENA='$contrasena'");
-            return $resultado;
-              
+            return $resultado;    
         }
 
         public function ConsultarNameUsu($id){
@@ -232,7 +231,25 @@
                                             WHERE CED_USU='$id'");
             return $resultado;
         }
+
+        public function ConsultaUsuarioPass($contrasena){
+            $resultado = $this->bd->query("SELECT * FROM USUARIO  
+                                            WHERE CONTRASENA='$contrasena'");
+            return $resultado;    
+        }
       
+
+        public function ConsultaUsuarioCedula($cedula){
+            $resultado = $this->bd->query("SELECT * FROM USUARIO  
+                                            WHERE CED_USU='$cedula'");
+            return $resultado;    
+        }
+
+        #Add usuario
+        public function AddUsuario($cedula, $nombres, $rol, $correo, $contrasena){
+            $resultado = $this->bd->query("INSERT INTO USUARIO(CED_USU, NOMBRE_COMPLETOS, ROLL, CORREO, CONTRASENA) VALUES ('$cedula', '$nombres', '$rol', '$correo', '$contrasena')");
+            return true;
+        }
     }
 
 ?>
