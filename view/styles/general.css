@@ -29,3 +29,7 @@ input, option, select, td{
     text-transform: uppercase;
     font-size: 13px;
 }
+
+b{
+    color: orangered;
+}

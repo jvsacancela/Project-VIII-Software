@@ -129,13 +129,13 @@
 
         #Consultar citas
         public function ConsultarCitas(){
-            $resultado = $this->bd->query("SELECT * FROM CITA");
+            $resultado = $this->bd->query("SELECT * FROM CITA ORDER BY COD_CITA DESC");
             return $resultado;
         }
 
          #Consultar citas
          public function ConsultarCitasHoy($fecha_hoy){
-            $resultado = $this->bd->query("SELECT * FROM CITA WHERE FECHA = '$fecha_hoy'");
+            $resultado = $this->bd->query("SELECT * FROM CITA WHERE FECHA = '$fecha_hoy' ORDER BY HORA ASC");
             return $resultado;
         }
 
@@ -183,6 +183,19 @@
             return $resultado;
         }
 
+        public function ConsultaUsuarioClave($cedula, $contrasena){
+            $resultado = $this->bd->query("SELECT * FROM USUARIO  
+                                            WHERE CED_USU='$cedula' 
+                                            AND CONTRASENA='$contrasena'");
+            return $resultado;
+              
+        }
+
+        public function ConsultarNameUsu($id){
+            $resultado = $this->bd->query("SELECT CED_USU, NOMBRE_COMPLETOS FROM USUARIO
+                                            WHERE CED_USU='$id'");
+            return $resultado;
+        }
       
     }
 

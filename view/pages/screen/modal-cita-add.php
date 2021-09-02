@@ -1,5 +1,10 @@
+<?php
 
-<div class="modal fade" id="modal-cita-add>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    $consulta_procedimiento = $consulta-> ConsultarProcedimientos();
+
+?>
+
+<div class="modal fade" id="modal-cita-add<?php echo $display['CED_PA']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog  modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
@@ -7,11 +12,12 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="procedimiento_add.php" method="POST">
+        <form action="../../app/php/cita_add2.php" method="POST">
             <div class="form-row">
+                
               <div class="col-md-12 mb-3">
                 <label for="validationServer01">Cédula paciente</label>
-                <input type="text"   class="form-control " id="validationServer01" required name="cliente-id">
+                <input type="text" readonly  class="form-control " id="validationServer01" required name="paciente-cedula" value="<?php echo $display['CED_PA'] ?>">
                 <div class="valid-feedback">
                   Excelente!
                 </div>
@@ -19,23 +25,7 @@
 
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">Nombres del paciente</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
-                <div class="valid-feedback">
-                   Excelente!
-                </div>
-              </div>
-
-              <div class="col-md-12 mb-3">
-                <label for="validationServer02">Cédula del funcionario</label>
-                <input type="text" class="form-control" id="validationServer02" required name="cliente-nombre">
-                <div class="valid-feedback">
-                   Excelente!
-                </div>
-              </div>
-
-              <div class="col-md-12 mb-3">
-                <label for="validationServer02">Nombre del funcionario</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
+                <input type="text" readonly class="form-control" id="validationServer02"  required name="paciente-nombre" value="<?php echo $display['NOMBRE_COMPLETOS'] ?>">
                 <div class="valid-feedback">
                    Excelente!
                 </div>
@@ -43,7 +33,7 @@
 
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">Historia clínica</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
+                <input type="text" readonly class="form-control" id="validationServer02"  required name="cita-hc" value="<?php echo $display['NUMERO_HISTORIA'] ?>">
                 <div class="valid-feedback">
                    Excelente!
                 </div>
@@ -51,7 +41,7 @@
 
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">Número de orden</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
+                <input type="text" class="form-control" id="validationServer02"  required name="cita-orden">
                 <div class="valid-feedback">
                    Excelente!
                 </div>
@@ -60,65 +50,37 @@
               
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">Procedimiento</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
+                <select required name="cita-procedimiento" id="slcat1" class="form-control text-uppercase">
+                  <option selected disabled value="">-- SELECCIONAR PROCEDIMIENTO --</option>
+                  <?php while($screen = $consulta_procedimiento->fetch_assoc()){?>
+                    <option value="<?php echo $screen['NOMBRE_PROCE']?>">
+                      <?php echo $screen['NOMBRE_PROCE']?>
+                    </option>
+                  <?php } ?>                                    
+                </select>
                 <div class="valid-feedback">
                    Excelente!
                 </div>
               </div>
 
               <div class="col-md-12 mb-3">
-                <label for="validationServer02">Detalle</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
+                <label for="validationServer02">Diagnóstico</label>
+                <input type="text" class="form-control" id="validationServer02"  required name="cita-detalle">
                 <div class="valid-feedback">
                    Excelente!
                 </div>
               </div>
 
               <div class="col-md-12 mb-3">
-                <label for="validationServer02">Fecha</label>
-                <input type="" class="form-control" id="validationServer02"  required name="cliente-nombre">
-                <div class="valid-feedback">
-                   Excelente!
-                </div>
+                <input type="hidden" class="form-control" id="validationServer02" name="cliente-correo" value="<?php echo $display['EMAIL'] ?>">
+                <input type="hidden" class="form-control" id="validationServer02" name="cliente-telefono" value="<?php echo $display['TELEFONO'] ?>">
+
+                <input type="hidden" class="form-control" id="validationServer02" name="usuario-nombre" value="<?php echo $consulta_usu_name['NOMBRE_COMPLETOS'] ?>">
+                <input type="hidden" class="form-control" id="validationServer02" name="usuario-cedula" value="<?php echo $consulta_usu_name['CED_USU'] ?>">
               </div>
-
-              <div class="col-md-12 mb-3">
-                <label for="validationServer02">Hora</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
-                <div class="valid-feedback">
-                   Excelente!
-                </div>
-              </div>
-
-              <div class="col-md-12 mb-3">
-                <label for="validationServer02">Estado</label>
-                <select name="funcionario-cargo" id="slcat2" class="form-control">
-                  <option selected  disabled value="">--SELECCIONAR ESTADO--</option>
-                    <option value="PEDIENTE">PENDIENTE</option>                         
-                    <option value="CADUCADO">EXPIRADA</option>                         
-                    <option value="FINALIZADO">FINALIZADO</option>                         
-                    <option value="CANCELADO">CANCELADO</option>                         
-                    <option value="REAGENDADO">REAGENDADO</option>                         
-                  </select> 
-                <div class="valid-feedback">
-                   Excelente!
-                </div>
-              </div>
-
-              <div class="col-md-12 mb-3">
-                <label for="validationServer02">Observación</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
-                <div class="valid-feedback">
-                   Excelente!
-                </div>
-              </div>
-
-              
-
-
 
                 <div class="modal-footer">
-                    <button class="btn col-md-12" type="submit">Guardar</button>
+                    <button class="btn col-md-12" type="submit">Agendar</button>
                 </div>
         </form>
       </div>

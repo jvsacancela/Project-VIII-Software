@@ -1,0 +1,23 @@
+:root{
+    --color-principal: #294E9B;
+    --color-secundario: #63C468;
+    --color-principal-hover: #153986;
+    --color-secundario-hover: #359b3a;
+
+}
+
+body{
+    background-color: var(--color-principal);
+}
+
+#titulo{
+    color: var(--color-principal)
+}
+
+#btn{
+    background-color: var(--color-secundario)
+}
+
+#btn:hover{
+    background-color: var(--color-secundario-hover)
+}

@@ -1,8 +1,5 @@
 <?php 
 
-    require_once '../data/sql.php';
-    require_once '../data/conexion.php';
-
     $insertar = new sql();
 
     if($_POST){
@@ -11,7 +8,20 @@
         $consultar_paciente = $insertar-> ConsultarPacienteID($paciente_cedula);
 
         if($consultar_paciente->num_rows>0){
-           header ('Location: ../../view/pages/mal.php');
+       
+       ?>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+            <script>          
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Datos no almacenados',
+                    text: 'Al parecer el paciente ingresado ya se encuentra registrado'
+                })
+            </script>
+
+        <?php
+           
+            //require_once('mal.php');
         }else{ 
             $paciente_cedula = $_POST['paciente-cedula'];
             $paciente_hc = $_POST['paciente-hc'];
@@ -23,9 +33,25 @@
     
     
             $insertar_paciente = $insertar->AddPaciente($paciente_cedula, $paciente_hc, $paciente_nombres, $paciente_afiliacion, $paciente_telefono, $paciente_direccion, $paciente_correo);
+
+            ?>
     
-            header ('Location: ../../view/pages/page-pacientes.php');
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+                <script> 
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Paciente agregado correctamente',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                </script>
+          <?php
+    
+           // header ('Location: ../../view/pages/page-pacientes.php');
         } 
     }?>
+
+
 
     

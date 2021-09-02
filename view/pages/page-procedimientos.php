@@ -1,11 +1,19 @@
 <?php 
 
+session_start();
+$ced_usu = $_SESSION['CED_USU'];
+
+if(!isset($_SESSION['CED_USU'])){
+  header ('Location: ../../index.php');
+}
+
 require_once "../../app/data/conexion.php";
 require_once "../../app/data/sql.php";
 
 $consulta = new sql();
 
 $consulta_procedimiento = $consulta->ConsultarProcedimientos();
+$consulta_usu_name = $consulta->ConsultarNameUsu($ced_usu)->fetch_assoc();
 
 ?>
 
@@ -44,10 +52,10 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos();
                 <li class="nav-item dropdown">
                     <a id="tit" class="nav-link dropdown-toggle second-text fw-bold text-uppercase" href="#" id="navbarDropdown"
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user me-2"></i>Usuario
+                        <i class="fas fa-user me-2"></i><?php echo $consulta_usu_name['NOMBRE_COMPLETOS']?>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Salir</a></li>
+                        <li><a class="dropdown-item" href="../../app/php/cerrar_sesion.php">Salir</a></li>
                     </ul>
                 </li>
             </ul>
@@ -113,3 +121,5 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos();
   <?php include ('../includes/scripts.php')?>
 </body>
 </html>
+
+<?php include('../../app/php/procedimiento_add.php')?>

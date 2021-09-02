@@ -1,7 +1,7 @@
 <?php 
 
-    require_once '../data/sql.php';
-    require_once '../data/conexion.php';
+   // require_once '../data/sql.php';
+    //require_once '../data/conexion.php';
 
     $insertar = new sql();
 
@@ -11,7 +11,17 @@
         $consultar_funcionario = $insertar-> ConsultarFuncionarioID($funcionario_cedula);
 
         if($consultar_funcionario->num_rows>0){
-           header ('Location: ../../view/pages/mal.php');
+            ?>
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+            <script>          
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Datos no almacenados',
+                    text: 'Al parecer el funcionario ingresado ya se encuentra registrado'
+                })
+            </script>
+
+        <?php
         }else{ 
             $funcionario_cedula = $_POST['funcionario-cedula'];
             $funcionario_procedimiento = $_POST['funcionario-procedimiento'];
@@ -22,8 +32,22 @@
     
     
             $insertar_funcionario = $insertar->AddFuncionario($funcionario_cedula, $funcionario_procedimiento, $funcionario_cargo, $funcionario_nombres, $funcionario_contacto, $funcionario_correo);
+
+            ?>
     
-            header ('Location: ../../view/pages/page-funcionarios.php');
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+                <script> 
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Funcionario agregado correctamente',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                </script>
+          <?php
+    
+           //header ('Location: ../../view/pages/page-funcionarios.php');
         }
         
         

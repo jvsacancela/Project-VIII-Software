@@ -1,11 +1,19 @@
 <?php 
 
+session_start();
+$ced_usu = $_SESSION['CED_USU'];
+
+if(!isset($_SESSION['CED_USU'])){
+  header ('Location: ../../index.php');
+}
+
 require_once "../../app/data/conexion.php";
 require_once "../../app/data/sql.php";
 
 $consulta = new sql();
 
 $consulta_pacientes = $consulta->ConsultarPacientes();
+$consulta_usu_name = $consulta->ConsultarNameUsu($ced_usu)->fetch_assoc();
 
 ?>
 
@@ -43,10 +51,10 @@ $consulta_pacientes = $consulta->ConsultarPacientes();
                 <li class="nav-item dropdown">
                     <a id="tit" class="nav-link dropdown-toggle second-text fw-bold text-uppercase" href="#" id="navbarDropdown"
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user me-2"></i>Usuario
+                        <i class="fas fa-user me-2"></i><?php echo $consulta_usu_name['NOMBRE_COMPLETOS']?>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Salir</a></li>
+                        <li><a class="dropdown-item" href="../../app/php/cerrar_sesion.php">Salir</a></li>
                     </ul>
                 </li>
             </ul>
@@ -87,12 +95,12 @@ $consulta_pacientes = $consulta->ConsultarPacientes();
                   <?php while($display = $consulta_pacientes->fetch_assoc()){ ?>
                   <tr class="text-uppercase">
                     <td>
+
+                    <a  data-bs-toggle="modal" data-bs-target="#modal-cita-add<?php echo $display['CED_PA']?>"><i class="icon ion-md-calendar"></i></a>
                     
-                    <a  data-bs-toggle="modal" data-bs-target="#modal-paciente-edit<?php echo $display['CED_PA']?>"><i class="icon ion-md-calendar"></i></a>
-                    
-                    <a  data-bs-toggle="modal" data-bs-target="#modal-paciente-edit<?php echo $display['CED_PA'];?>" id="btnEdit"><i class="icon ion-md-create"></i></a>
+                    <a  data-bs-toggle="modal2" data-bs-target="#modal-paciente-edit<?php echo $display['CED_PA']?>" id="btnEdit"><i class="icon ion-md-create"></i></a>
                   
-                    <a data-bs-toggle="modal" data-bs-target="#modal-paciente-delete<?php echo $display['CED_PA'];?>"  id="btnDelete" ><i class="icon ion-md-trash"></i></a>
+                    <a data-bs-toggle="modal1" data-bs-target="#modal-paciente-delete<?php echo $display['CED_PA']?>"  id="btnDelete" ><i class="icon ion-md-trash"></i></a>
                     </td>
                     <td ><?php echo $display['CED_PA']; ?></td>
                     <td><?php echo $display['NUMERO_HISTORIA']; ?></td>
@@ -104,15 +112,16 @@ $consulta_pacientes = $consulta->ConsultarPacientes();
                     
                   </tr>
                   <?php  
-                     include('screen/modal-paciente-delete.php');
-                    include('screen/modal-paciente-edit.php');
-                    
+                  include('screen/modal-cita-add.php');
+                  include('screen/modal-paciente-delete.php');
+                  include('screen/modal-paciente-edit.php');
+                   
+                 
                     
                     } ?>
                   
                 </tbody>
 
-                <?php ?>
               </table>
             </div>
           </div>
@@ -124,5 +133,9 @@ $consulta_pacientes = $consulta->ConsultarPacientes();
 
 
   <?php include ('../includes/scripts.php')?>
+
 </body>
 </html>
+
+
+<?php include('../../app/php/paciente_add.php')?>

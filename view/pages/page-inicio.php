@@ -1,5 +1,12 @@
 <?php 
 
+session_start();
+$ced_usu = $_SESSION['CED_USU'];
+
+if(!isset($_SESSION['CED_USU'])){
+  header ('Location: ../../index.php');
+}
+
 require_once "../../app/data/conexion.php";
 require_once "../../app/data/sql.php";
 
@@ -7,6 +14,8 @@ $consulta = new sql();
 
 date_default_timezone_set('America/Lima');
 $fecha_hoy = date("Y-m-d");
+
+$consulta_usu_name = $consulta->ConsultarNameUsu($ced_usu)->fetch_assoc();
 
 $consulta_cita = $consulta->ConsultarCitasHoy($fecha_hoy);
 $consulta_procedimiento = $consulta->ConsultarProcedimientos()
@@ -47,10 +56,10 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos()
                 <li class="nav-item dropdown">
                     <a  id="tit" class="nav-link dropdown-toggle second-text fw-bold text-uppercase" href="#" id="navbarDropdown"
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-user me-2"></i>Usuario
+                        <i class="fas fa-user me-2"></i><?php echo $consulta_usu_name['NOMBRE_COMPLETOS']?>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Salir</a></li>
+                        <li><a class="dropdown-item" href="../../app/php/cerrar_sesion.php">Salir</a></li>
                     </ul>
                 </li>
             </ul>
@@ -87,6 +96,7 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos()
                 <thead> 
                     <th>...</th>
                     <th>Estado</th>
+                    <th>Hora</th>
                     <th>Historia Clínica</th>
                     <th>Número de orden</th>
                     <th>Cédula del paciente</th>
@@ -106,14 +116,15 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos()
 
                     <a data-bs-toggle="modal" data-bs-target="#modal-cita-delete<?php echo $display['COD_CITA'] ?>"  id="btnDelete" ><i class="icon ion-md-trash"></i></a>
                     </td>
-                    <td><?php echo $display['ESTADO']; ?></td>
+                    <td><b><?php echo $display['ESTADO']; ?></b></td>
+                    <td><?php echo $display['HORA']; ?></td>
                     <td><?php echo $display['NUMERO_HISTORIA']; ?></td>
                     <td><?php echo $display['NUMERO_DE_ORDEN']; ?></td>
                     <td><?php echo $display['CED_PA']; ?></td>
                     <td><?php echo $display['NOMBRE_PA']; ?></td>
                     <td><?php echo $display['NOMBRE_FUN']; ?></td>
                     <td><?php echo $display['PROCEDIMIENTOS'] . " " . $display['DETALLE_PRO'] ?></td>
-                    <td><?php echo $display['OBSERVACION']; ?></td>
+                    <td><b><?php echo $display['OBSERVACION']; ?></b></td>
                   </tr>
                   <?php 
                       include('screen/modal-cita-delete.php');
@@ -155,6 +166,9 @@ $(document).ready(function() {
     }
   })
 });
+
+
+
 </script>
 
 </body>

@@ -11,7 +11,7 @@ $cosnulta_cargo = $consulta-> ConsultarCargo();
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="../../app/php/funcionario_add.php" method="POST">
+        <form action="" method="POST">
             <div class="form-row">
 
               <div class="col-md-12 mb-3">

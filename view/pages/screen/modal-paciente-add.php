@@ -7,12 +7,12 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="../../app/php/paciente_add.php" method="POST">
+        <form action="" method="POST">
             <div class="form-row">
 
             <div class="col-md-12 mb-3">
                 <label for="validationServer01">Cédula</label>
-                <input type="text" maxlength="10" minlength="10"  class="form-control " id="validationServer01" required name="paciente-cedula">
+                <input type="text" maxlength="10" minlength="10"  class="form-control " id="input" required name="paciente-cedula">
                 <div class="valid-feedback">
                   Excelente!
                 </div>
@@ -67,10 +67,11 @@
               </div>
 
                 <div class="modal-footer">
-                    <button class="btn col-md-12" type="submit">Guardar</button>
+                    <button data-bs-toggle="modal" data-bs-target="#mostrar_fallo" class="btn col-md-12" id="btn_enviar" type="submit">Guardar</button>
                 </div>
         </form>
       </div>
     </div>
   </div>
 </div>
+
