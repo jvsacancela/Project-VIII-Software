@@ -36,7 +36,7 @@
               </div>
               <div class="row col-md-12 mb-3">
                 <div class="col-md-5 m-auto">
-                <label for="validationServer01">Tipo de Notificacion</label>
+                <label for="validationServer01">Tipo de Procedimiento</label>
                 </div>
                 <div class="col-md-7 ">
                 <select  class="form-select" disabled="disabled" name="procedimiento" id="d">
