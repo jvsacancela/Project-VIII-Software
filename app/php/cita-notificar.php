@@ -35,7 +35,7 @@ if($a=="recordatorio"){
             echo $corr= $val['email'];
             $hora= substr($val['hora'],0,-3);
 
-           echo $msg =$val['nombre'] ." este es un mensaje de Recordatorio de su cita."."\n"."Informacion cita Expirada: "."\n"."Fecha: " .$val['fecha']."\n"."Hora: ".$hora."\n"."Procedimiento: ".$val['procedimientos']." ".$val['detalle']."\n"." Estar 20 minutos antes.";
+           echo $msg =$val['nombre'] ." este es un mensaje de Recordatorio de su cita."."\n"."Informacion cita: "."\n"."Fecha: " .$val['fecha']."\n"."Hora: ".$hora."\n"."Procedimiento: ".$val['procedimientos']." ".$val['detalle']."\n"." Estar 20 minutos antes.";
 
           mail($corr,$asunto,$msg);  
         }
@@ -71,10 +71,12 @@ if($a=="recordatorio"){
     }
     //Envio de Cancelacion
     if($a=="Cancelado"){
-        //$fechai=$_POST['fecha1'];
-        //$fechaf=$_POST['fecha2'];
-        $fechai= "2021-09-09";
-        $fechaf= "2021-09-09";
+       echo $fechai=$_POST['fecha1'];
+       echo $fechaf=$_POST['fecha2'];
+       //echo $fechai= date('Y-m-d',$fechaaaai);;
+       //echo $fechaf= date('Y-m-d',$fechaaaaf);;
+        
+
         $mensaje=$_POST['mensaje'];
         $obs= "Reagendado por: ". $mensaje;
         $proce=$_POST['procedimiento'];
@@ -135,14 +137,8 @@ if($a=="recordatorio"){
                     $fecha_ul= date($fecha_u);
                     $fecha_ult = strtotime('+1 day', strtotime($fecha_ul));
                     echo $fecha_ult = date('Y-m-d', $fecha_ult);
-                    echo $fechaff=$fecha_ult." 06:00:00";
-                    $h= substr( $roww['TIEMPO'],0,-6);
-                    $m= substr( $roww['TIEMPO'],3,-3);
-                    echo $newtime= $h.'H'.$m.'M';
-                    $intervalo = new DateInterval('PT'.$newtime); // intervalo de tiempo 19 horas y 30 min
+                    echo $fechaff=$fecha_ult." 06:00:00";                  
                     $fechaf= new DateTime($fechaff);
-        
-                    $fechaf->add($intervalo);
                     echo $fechaf->format('Y-m-d H:i:s' );
 
                 }else{
@@ -179,7 +175,7 @@ if($a=="recordatorio"){
             $fecha = $fecha_reagendar;
             $hora = $tiempo_reagendar;
             $asunto="Reagendamiento de cita IESS";
-            echo $msg =$nombre_paciente ." este es un mensaje de Reagendamiento de su cita."."\n"."Informacion cita cancelada: "."\n"."Fecha: " .$fecha."\n"."Hora: ".$hora."\n"."Procedimiento: ".$procedimiento." ".$detalle;
+            echo $msg =$nombre_paciente ." este es un mensaje de Reagendamiento de su cita."."\n"."Informacion cita Reagendada : "."\n"."Fecha: " .$fecha."\n"."Hora: ".$hora."\n"."Procedimiento: ".$procedimiento." ".$detalle;
             mail($ct_email,$asunto,$msg);
             $insertar_cita = $clase_corr->AddCita($cedula_paciente, $cedula_usuario, $cedula_funcionario, $numero_historia, $numero_orden, $nombre_paciente, $nombre_funcionario, $procedimiento, $detalle, $estado, $observacion, $ct_email, $ct_fono, $ct_usuario, $fecha, $hora);
             
