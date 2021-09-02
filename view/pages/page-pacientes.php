@@ -88,29 +88,31 @@ $consulta_pacientes = $consulta->ConsultarPacientes();
                   <tr class="text-uppercase">
                     <td>
                     
-                    <a  data-bs-toggle="modal" data-bs-target="#modal-cita-add2<?php echo $display['CED_PA']?>" id="btnEdit"><i class="icon ion-md-calendar"></i></a>
-
-                    <a  data-bs-toggle="modal" data-bs-target="#modal-paciente-edit<?php echo $display['CED_PA']?>" id="btnEdit"><i class="icon ion-md-create"></i></a>
-
-                    <a data-bs-toggle="modal" data-bs-target="#modal-paciente-delete<?php echo $display['CED_PA'] ?>"  id="btnDelete" ><i class="icon ion-md-trash"></i></a>
+                    <a  data-bs-toggle="modal" data-bs-target="#modal-paciente-edit<?php echo $display['CED_PA']?>"><i class="icon ion-md-calendar"></i></a>
+                    
+                    <a  data-bs-toggle="modal" data-bs-target="#modal-paciente-edit<?php echo $display['CED_PA'];?>" id="btnEdit"><i class="icon ion-md-create"></i></a>
+                  
+                    <a data-bs-toggle="modal" data-bs-target="#modal-paciente-delete<?php echo $display['CED_PA'];?>"  id="btnDelete" ><i class="icon ion-md-trash"></i></a>
                     </td>
-                    <td id="wqw"><?php echo $display['CED_PA']; ?></td>
+                    <td ><?php echo $display['CED_PA']; ?></td>
                     <td><?php echo $display['NUMERO_HISTORIA']; ?></td>
                     <td><?php echo $display['NOMBRE_COMPLETOS']; ?></td>
                     <td><?php echo $display['AFILIACION']; ?></td>
                     <td><?php echo $display['TELEFONO']; ?></td>
                     <td><?php echo $display['EMAIL']; ?></td>
                     <td><?php echo $display['DIRECCION']; ?></td>
+                    
                   </tr>
-                  <?php 
-                      
-                      include('screen/modal-paciente-delete.php');
-                      
-                      include('screen/modal-cita-add2.php');
-                      include('screen/modal-paciente-edit.php');
-                   } ?>
+                  <?php  
+                     include('screen/modal-paciente-delete.php');
+                    include('screen/modal-paciente-edit.php');
+                    
+                    
+                    } ?>
                   
                 </tbody>
+
+                <?php ?>
               </table>
             </div>
           </div>

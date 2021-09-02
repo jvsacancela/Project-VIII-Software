@@ -134,8 +134,8 @@
         }
 
          #Consultar citas
-         public function ConsultarCitasHoy(){
-            $resultado = $this->bd->query("SELECT * FROM CITA WHERE FECHA = '2021-09-01'");
+         public function ConsultarCitasHoy($fecha_hoy){
+            $resultado = $this->bd->query("SELECT * FROM CITA WHERE FECHA = '$fecha_hoy'");
             return $resultado;
         }
 

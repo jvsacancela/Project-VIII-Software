@@ -17,5 +17,7 @@
 
         <a href="../pages/page-procedimientos.php" class="list-group-item list-group-item-action bg-transparent"><i class="icon ion-md-medkit"></i>Procedimientos</a>
 
+        <a href="../pages/page-citas.php" class="list-group-item list-group-item-action bg-transparent"><i class="icon ion-md-pulse"></i>Historial citas médicas</a>
+
       </div>
     </div>

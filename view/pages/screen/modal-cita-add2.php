@@ -4,7 +4,7 @@
 
 ?>
 
-<div class="modal fade" id="modal-cita-add2<?php echo $display['CED_PA']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-paciente-edit<?php echo $display['CED_PA']?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog  modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
@@ -82,7 +82,7 @@
 
               <div class="col-md-12 mb-3">
                 <input type="text" class="form-control" id="validationServer02" name="cliente-correo" value="<?php echo $display['EMAIL'] ?>">
-                <input type="text" class="form-control" id="validationServer02" name="cliente-telefono" value="<?php echo $display['TELEFONO'] ?>">
+                <input type="hidden" class="form-control" id="validationServer02" name="cliente-telefono" value="<?php echo $display['TELEFONO'] ?>">
               </div>
 
                 <div class="modal-footer">

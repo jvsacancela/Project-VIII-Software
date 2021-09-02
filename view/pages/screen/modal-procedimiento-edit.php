@@ -9,6 +9,7 @@
         <form action="../../app/php/procedimiento_update.php" method="POST">
             <div class="form-row">
               <div class="col-md-12 mb-3">
+  
                 <label for="validationServer01">Nombre del procedimiento</label>
                 <input type="text"  class="form-control " id="validationServer01" required name="procedimiento-nombre" value="<?php echo $display['NOMBRE_PROCE'] ?>">
 
