@@ -12,7 +12,7 @@
 
             <div class="col-md-12 mb-3">
                 <label for="validationServer01">Cédula</label>
-                <input type="text"   class="form-control " id="validationServer01" required name="paciente-cedula">
+                <input type="text" maxlength="10" minlength="10"  class="form-control " id="validationServer01" required name="paciente-cedula">
                 <div class="valid-feedback">
                   Excelente!
                 </div>
@@ -44,7 +44,7 @@
 
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">Contacto</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="paciente-telefono">
+                <input type="text" maxlength="10" minlength="10" class="form-control" id="validationServer02"  required name="paciente-telefono">
                 <div class="valid-feedback">
                    Excelente!
                 </div>

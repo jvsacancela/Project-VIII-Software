@@ -103,10 +103,11 @@ $consulta_pacientes = $consulta->ConsultarPacientes();
                     <td><?php echo $display['DIRECCION']; ?></td>
                   </tr>
                   <?php 
-                      include('screen/modal-cita-add2.php');
-                      include('screen/modal-paciente-delete.php');
-                      include('screen/modal-paciente-edit.php');
                       
+                      include('screen/modal-paciente-delete.php');
+                      
+                      include('screen/modal-cita-add2.php');
+                      include('screen/modal-paciente-edit.php');
                    } ?>
                   
                 </tbody>

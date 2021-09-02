@@ -80,6 +80,11 @@
                 </div>
               </div>
 
+              <div class="col-md-12 mb-3">
+                <input type="text" class="form-control" id="validationServer02" name="cliente-correo" value="<?php echo $display['EMAIL'] ?>">
+                <input type="text" class="form-control" id="validationServer02" name="cliente-telefono" value="<?php echo $display['TELEFONO'] ?>">
+              </div>
+
                 <div class="modal-footer">
                     <button class="btn col-md-12" type="submit">Agendar</button>
                 </div>

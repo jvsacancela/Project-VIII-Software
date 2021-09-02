@@ -18,13 +18,7 @@
 
         #Consultar funcionario por procedimiento id
         public function ConsultaFuncionarioProce($procedimiento_name){
-            $resultado = $this->bd->query("SELECT CED_FUN, NOMBRE_COMPLETOS FROM FUNCIONARIOS_IMAGEN WHERE NOMBRE_PROCE = '$procedimiento_name'");
-            return $resultado;
-        }
-
-         #Consultar funcionario por procedimiento RANDOM
-         public function ConsultaFuncionarioProce1($procedimiento_name){
-            $resultado = $this->bd->query("SELECT COUNT(NOMBRE_PROCE) FROM FUNCIONARIOS_IMAGEN WHERE NOMBRE_PROCE = '$procedimiento_name'");
+            $resultado = $this->bd->query("SELECT CED_FUN, NOMBRE_COMPLETOS FROM FUNCIONARIOS_IMAGEN WHERE NOMBRE_PROCE = '$procedimiento_name' ORDER BY RAND() LIMIT 50");
             return $resultado;
         }
 
@@ -43,6 +37,12 @@
         #Procedimiento Name
         public function ConsultarProcedimientoFuncionario($procedimiento_name){
             $resultado = $this->bd->query("SELECT * FROM FUNCIONARIOS_IMAGEN WHERE NOMBRE_PROCE = '$procedimiento_name'");
+            return $resultado;
+        }
+
+         #Procedimiento Name
+         public function ConsultarProcedimientoName($id){
+            $resultado = $this->bd->query("SELECT * FROM PROCEDIMIENTO WHERE NOMBRE_PROCE = '$id'");
             return $resultado;
         }
 
