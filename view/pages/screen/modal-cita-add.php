@@ -76,7 +76,7 @@
 
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">Fecha</label>
-                <input type="text" class="form-control" id="validationServer02"  required name="cliente-nombre">
+                <input type="" class="form-control" id="validationServer02"  required name="cliente-nombre">
                 <div class="valid-feedback">
                    Excelente!
                 </div>
@@ -95,7 +95,7 @@
                 <select name="funcionario-cargo" id="slcat2" class="form-control">
                   <option selected  disabled value="">--SELECCIONAR ESTADO--</option>
                     <option value="PEDIENTE">PENDIENTE</option>                         
-                    <option value="CADUCADO">CADUCADO</option>                         
+                    <option value="CADUCADO">EXPIRADA</option>                         
                     <option value="FINALIZADO">FINALIZADO</option>                         
                     <option value="CANCELADO">CANCELADO</option>                         
                     <option value="REAGENDADO">REAGENDADO</option>                         

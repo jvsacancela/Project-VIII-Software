@@ -25,7 +25,7 @@ $consulta_cargo = $consulta-> ConsultarCargo();
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">Procedimiento</label>
                 <select name="funcionario-procedimiento" id="slcat1" class="form-control">
-                <option selected  value="<?php echo $display['NOMBRE_PROCE']?>">
+                <option readonly selected  value="<?php echo $display['NOMBRE_PROCE']?>">
                 <?php echo $display['NOMBRE_PROCE']?></option>
                       <?php while($screen = $consulta_procedimiento->fetch_assoc()){?>
                           <option value="<?php echo $screen['NOMBRE_PROCE']?>"><?php echo $screen['NOMBRE_PROCE']?></option>
@@ -38,8 +38,8 @@ $consulta_cargo = $consulta-> ConsultarCargo();
 
               <div class="col-md-12 mb-3">
                 <label for="validationServer02">Cargo</label>
-                <select name="funcionario-cargo" id="slcat2" class="form-control">
-                <option selected  value="<?php echo $display['NOMBRE_CARGO']?>">
+                <select  name="funcionario-cargo" id="slcat2" class="form-control">
+                <option readonly selected  value="<?php echo $display['NOMBRE_CARGO']?>">
                 <?php echo $display['NOMBRE_CARGO']?></option>
                 <?php while($screen = $consulta_cargo->fetch_assoc()){?>
                           <option value="<?php echo $screen['NOMBRE_CARGO']?>"><?php echo $screen['NOMBRE_CARGO']?></option>
