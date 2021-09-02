@@ -168,13 +168,13 @@ $(document).ready(function() {
 });
 
 
-
 </script>
 <script type="text/javascript">
     function popUp(URL) {
         window.open(URL, 'Imprimir ticket', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=800,height=800,left = 39,top = 50');
     }
     </script>
+ 
 
 </body>
 
