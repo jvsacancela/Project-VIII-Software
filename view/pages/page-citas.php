@@ -29,7 +29,8 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos()
     <div id="contenido-page" >
       <nav class="navbar navbar-expand-lg navbar-light  py-4 px-4 shadow p-3 mb-5 bg-white rounded">
         <div class="d-flex align-items-center">
-          <i class="icon ion-md-reorder" id="menu"></i>
+        <i class="icon ion-md-reorder" id="menu"></i>
+
           <h3 id="tit" class="fs-2 m-0">Citas médicas</h3>
         </div>
 
@@ -44,6 +45,7 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos()
                 <li class="nav-item dropdown">
                     <a  id="tit" class="nav-link dropdown-toggle second-text fw-bold text-uppercase" href="#" id="navbarDropdown"
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
                         <i class="fas fa-user me-2"></i>Usuario
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -58,8 +60,9 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos()
       <div class="container-fluid px-4">
 
         <div class="row my-5 col-md-12 m-auto shadow p-3 mb-5 bg-white rounded">
-          <h3 class="fs-4 mb-3"><a href="" id="btnExport"><i class="icon ion-md-open"></i></a>Citas médicas</h3>
-          
+          <h3 class="fs-4 mb-3"><a  data-bs-toggle="modal" data-bs-target="#modal-filtrar-reporte" id="btnEdit"> <i class="icon ion-md-open"></i></a>Citas médicas</h3>
+          <?php include('screen/modal-filtrar-reporte.php');?>
+
           
           <hr>
         
@@ -83,7 +86,7 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos()
                 <?php while($display = $consulta_cita->fetch_assoc()){ ?>
                   <tr class="text-uppercase">
                     <td>
-                    <a href=""><i class="icon ion-md-print"></i></a>
+                    <a href="javascript:popUp('screen/ticket.php?cod_cita=<?php echo $display['COD_CITA']?>')"><i class="icon ion-md-print"></i></a>
                     
                     <a  data-bs-toggle="modal" data-bs-target="#modal-cita-edit<?php echo $display['COD_CITA']?>" id="btnEdit"><i class="icon ion-md-create"></i></a>
 
@@ -140,6 +143,11 @@ $(document).ready(function() {
   })
 });
 </script>
+<script type="text/javascript">
+    function popUp(URL) {
+        window.open(URL, 'Imprimir ticket', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=800,height=800,left = 39,top = 50');
+    }
+    </script>
 
 </body>
 

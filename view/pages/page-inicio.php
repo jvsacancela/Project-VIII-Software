@@ -100,7 +100,7 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos()
                 <?php while($display = $consulta_cita->fetch_assoc()){ ?>
                   <tr class="text-uppercase">
                     <td>
-                    <a href=""><i class="icon ion-md-print"></i></a>
+                    <a href="javascript:popUp('screen/ticket.php?cod_cita=<?php echo $display['COD_CITA']?>')"><i class="icon ion-md-print"></i></a>
 
                     <a  data-bs-toggle="modal" data-bs-target="#modal-cita-edit<?php echo $display['COD_CITA']?>" id="btnEdit"><i class="icon ion-md-create"></i></a>
 
@@ -156,6 +156,11 @@ $(document).ready(function() {
   })
 });
 </script>
+<script type="text/javascript">
+    function popUp(URL) {
+        window.open(URL, 'Imprimir ticket', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=800,height=800,left = 39,top = 50');
+    }
+    </script>
 
 </body>
 

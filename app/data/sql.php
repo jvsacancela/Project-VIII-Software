@@ -182,6 +182,42 @@
             $resultado = $this->bd->query("SELECT * FROM PROCEDIMIENTO WHERE NOMBRE_PROCE = '$pro'");
             return $resultado;
         }
+        #Consultar citas por codigo
+        public function ConsultarCitasCodigo($cod){
+            $resultado = $this->bd->query("SELECT * FROM CITA WHERE COD_CITA='$cod'");
+            return $resultado;
+        }
+        #Consultar citas para filtro de de reportes
+        public function ConsultarReporte1($fecha_inicial,$fecha_final,$procedimiento,$estado){
+            $resultado = $this->bd->query("SELECT * FROM CITA WHERE FECHA BETWEEN '$fecha_inicial' AND '$fecha_final' AND ESTADO='$estado' AND PROCEDIMIENTOS='$procedimiento'");
+            return $resultado;
+        }
+        public function ConsultarReporte2($fecha_inicial,$fecha_final){
+            $resultado = $this->bd->query("SELECT * FROM CITA WHERE FECHA BETWEEN '$fecha_inicial' AND '$fecha_final'");
+            return $resultado;
+        }
+        public function ConsultarReporte3($procedimiento){
+            $resultado = $this->bd->query("SELECT * FROM CITA WHERE PROCEDIMIENTOS='$procedimiento'");
+            return $resultado;
+        }
+        public function ConsultarReporte4($estado){
+            $resultado = $this->bd->query("SELECT * FROM CITA WHERE ESTADO='$estado'");
+            return $resultado;
+        }
+        public function ConsultarReporte5($fecha_inicial,$fecha_final,$procedimiento){
+            $resultado = $this->bd->query("SELECT * FROM CITA WHERE FECHA BETWEEN '$fecha_inicial' AND '$fecha_final' AND PROCEDIMIENTOS='$procedimiento' ");
+            return $resultado;
+        }
+        public function ConsultarReporte6($fecha_inicial,$fecha_final,$estado){
+            $resultado = $this->bd->query("SELECT * FROM CITA WHERE FECHA BETWEEN '$fecha_inicial' AND '$fecha_final' AND ESTADO='$estado'");
+            return $resultado;
+        }
+        public function ConsultarReporte7($procedimiento,$estado){
+            $resultado = $this->bd->query("SELECT * FROM CITA WHERE PROCEDIMIENTOS='$procedimiento' AND ESTADO='$estado'");
+            return $resultado;
+        }
+ 
+
 
       
     }
