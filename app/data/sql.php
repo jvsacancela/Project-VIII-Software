@@ -168,11 +168,10 @@
             return true;
         }
         public function ConsultaCitaUltimo($pro){
-            $resultado = $this->bd->query("SELECT TOP 1 * FROM CITA ORDER BY COD_CITA DESC ");
+            $resultado = $this->bd->query("SELECT * FROM  CITA WHERE PROCEDIMIENTOS ='$pro' ORDER BY COD_CITA DESC LIMIT 1  ");
             return $resultado;
         }
         #consultar procedimientos time
-        #Procedimiento Name
         public function ConsultarProcedimientoTime($pro){
             $resultado = $this->bd->query("SELECT * FROM PROCEDIMIENTO WHERE NOMBRE_PROCE = '$pro'");
             return $resultado;

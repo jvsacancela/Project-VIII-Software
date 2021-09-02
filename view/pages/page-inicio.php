@@ -137,6 +137,8 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos()
  
 
   <?php include ('../includes/scripts.php')?>
+
+
   
   <script>
 $(document).ready(function() {

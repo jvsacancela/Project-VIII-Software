@@ -73,13 +73,13 @@ if($a=="recordatorio"){
     if($a=="Cancelado"){
         //$fechai=$_POST['fecha1'];
         //$fechaf=$_POST['fecha2'];
-        $fechai= "2021-09-01";
-        $fechaf= "2021-09-01";
+        $fechai= "2021-09-09";
+        $fechaf= "2021-09-09";
         $mensaje=$_POST['mensaje'];
         $obs= "Reagendado por: ". $mensaje;
         $proce=$_POST['procedimiento'];
         $result_cor = $clase_corr->ConsultaCorreosCancelar($fechai,$fechaf,$proce);
-        if($result_cor->num_rows>0){
+       if($result_cor->num_rows>0){
             $game=array();
             while($row = $result_cor->fetch_assoc()){ 
                 $temp= array();
@@ -98,6 +98,7 @@ if($a=="recordatorio"){
                 $temp['obs'] = $row['OBSERVACION'];
                 $temp['email'] = $row['CT_EMAIL'];
                 $temp['cor'] = $row['CT_FONO'];
+                $temp['usu'] = $row['CT_USUARIO'];
                 $game[]=$temp;
             }  
             $asunto="Cancelacion de cita IESS";
@@ -113,7 +114,7 @@ if($a=="recordatorio"){
         }
 
        foreach ($game as $vall) {
-            $pro=$vall['procedimientos'];
+           echo $pro=$vall['procedimientos'];
             echo $date_noww = date('Y-m-d');
             echo $hora_noww = date('H:i:s');
             $date_future = strtotime('+1 day', strtotime($date_noww));
@@ -121,55 +122,68 @@ if($a=="recordatorio"){
 
             $result_cor = $clase_corr->ConsultaCitaUltimo($pro);
             $result_time = $clase_corr->ConsultarProcedimientoTime($pro);
+            //paa sacar fecha y tiempo
   
             if($result_cor->num_rows>0){
-        /*$roww =mysqli_fetch_array($result_time);
+             $roww =mysqli_fetch_array($result_time);
             $tiempo = $roww['TIEMPO'];
             $row =mysqli_fetch_array($result_cor);
-            $fecha_u = $row['FECHA'];
-            $hora_u = $row['HORA'];*/
-            $fechaf=$fecha_u." ".$hora_u;
-            $h= substr( $roww['TIEMPO'],0,-6);
-            $m= substr( $roww['TIEMPO'],3,-3);
-            $newtime= $h.'H'.$m.'M';
-            $intervalo = new DateInterval('PT'.$newtime); // intervalo de tiempo 19 horas y 30 min
-
-            echo $fechaf->format('Y-m-d h:i:s');
-
-            $fechaf->add($intervalo);
-            echo $fechaf->format('Y-m-d h:i:s a');
-            }else{
-                echo "hoa";
-            }
-            if($result_time->num_rows>0){
-                echo "esto si vale";
-            }else{
-                echo "hoa";
-            }
-
+            echo $fecha_u = $row['FECHA'];
+            echo $hora_u = $row['HORA'];
            
+            if($fechaf==$fecha_u){
+                $fecha_ul= date($fecha_u);
+                $fecha_ult = strtotime('+1 day', strtotime($fecha_ul));
+                echo $fecha_ult = date('Y-m-d', $fecha_ult);
+                echo $fechaff=$fecha_ult." 06:00:00";
+                $h= substr( $roww['TIEMPO'],0,-6);
+                $m= substr( $roww['TIEMPO'],3,-3);
+                echo $newtime= $h.'H'.$m.'M';
+                $intervalo = new DateInterval('PT'.$newtime); // intervalo de tiempo 19 horas y 30 min
+                $fechaf= new DateTime($fechaff);
+    
+                $fechaf->add($intervalo);
+                echo $fechaf->format('Y-m-d H:i:s' );
 
+            }else{
+                echo $fechaff=$fecha_u." ".$hora_u;
+                $h= substr( $roww['TIEMPO'],0,-6);
+                $m= substr( $roww['TIEMPO'],3,-3);
+                echo $newtime= $h.'H'.$m.'M';
+                $intervalo = new DateInterval('PT'.$newtime); // intervalo de tiempo 19 horas y 30 min
+                $fechaf= new DateTime($fechaff);
+    
+                $fechaf->add($intervalo);
+                echo $fechaf->format('Y-m-d H:i:s' );
 
-           /* if($result_cor->num_rows>0){ 
-                   
-            $cedp= $vall['cedulap'];
-            $cedu=$vall['cedulau'];
-            $cedf=$vall['cedulaf'];
-            $numh=$vall['numh'];
-            $numo=$vall['numo'];
-            $nomp=$vall['nomp'];
-            $numf=$vall['nomf';
-            $det=$vall['detalle'];
-            $fe=$vall['fecha'];
-            $ho=$vall['hora'];
-            $obs=$vall['obs'];
-            $email=$vall['email'];
-            $cor=$vall['cor'];
-            $insertar_procedimiento = $clase_corr->AddPacienteCancelado($procedimiento_id, $procedimiento_nombre, $procedimiento_hora);
-           
+            }
+            }
+            echo $abec=$fechaf->format('Y-m-d H:i:s');
+            $tiempo_reagendar= substr($abec,11);
+            $fecha_reagendar= substr($abec,0,-9);
 
-            }*/
-
+            $cedula_paciente = $vall['cedulap'];
+            $cedula_usuario=  $vall['cedulau'];
+            $cedula_funcionario = $vall['cedulaf'];
+            $numero_historia = $vall['numh'];
+            $numero_orden = $vall['numo'];
+            $nombre_paciente = $vall['nomp'];
+            $nombre_funcionario = $vall['nomf'];
+            $procedimiento = $vall['procedimientos'];
+            $detalle = $vall['detalle'];
+            $estado =  "Pendiente";
+            $observacion = "Reagendado ";
+            $ct_email = $vall['email'];
+            $ct_fono = $vall['cor'];
+            $ct_usuario = $vall['usu'];
+            $fecha = $fecha_reagendar;
+            $hora = $tiempo_reagendar;
+            $asunto="Reagendamiento de cita IESS";
+            echo $msg =$nombre_paciente ." este es un mensaje de Reagendamiento de su cita."."\n"."Informacion cita cancelada: "."\n"."Fecha: " .$fecha."\n"."Hora: ".$hora."\n"."Procedimiento: ".$procedimiento." ".$detalle;
+            mail($ct_email,$asunto,$msg);
+            $insertar_cita = $clase_corr->AddCita($cedula_paciente, $cedula_usuario, $cedula_funcionario, $numero_historia, $numero_orden, $nombre_paciente, $nombre_funcionario, $procedimiento, $detalle, $estado, $observacion, $ct_email, $ct_fono, $ct_usuario, $fecha, $hora);
+            
+            
           }
 
         }else{
@@ -180,7 +194,7 @@ if($a=="recordatorio"){
     }
 
 
-    //header ('Location: ../../view/pages/page-inicio.php');
+    header ('Location: ../../view/pages/page-inicio.php');
    
 
 ?>
