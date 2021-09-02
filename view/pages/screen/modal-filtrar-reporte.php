@@ -12,14 +12,14 @@
               
               <div class=" col-md-12 mb-3">
                 <label for="validationServer01">Fecha Inicial</label>
-                <input class="form-control" type="date" name="fecha1"></input>
+                <input class="form-control" type="date" name="fecha1" id="trord" onblur="document.getElementById('uno').value=this.value"></input>
                 <div class="valid-feedback">
                    Excelente!
                 </div>
               </div>
               <div class=" col-md-12 mb-3">
                 <label for="validationServer01">Fecha Final</label>
-                <input class="form-control" type="date" name="fecha2"></input>
+                <input class="form-control" type="date" name="fecha2" id="uno"></input>
                 <div class="valid-feedback">
                    Excelente!
                 </div>
@@ -43,7 +43,7 @@
                 <label for="validationServer01">Estado</label>
                 </div>
                 <div class="col-md-7 ">
-                <select  class="form-select" name="estado" id="notificacion">
+                <select  class="form-select" name="estado" id="notificacion" >
                     <option value="">SELECIONE UN ESTADO</option>
                   <option value="Pendiente">PENDIENTE</option>
                   <option value="Cancelado">CANCELADAS</option>
