@@ -12,7 +12,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="../../app/php/cita_add.php" method="POST">
+        <form action="../../app/php/cita_add2.php" method="POST">
             <div class="form-row">
                 
               <div class="col-md-12 mb-3">

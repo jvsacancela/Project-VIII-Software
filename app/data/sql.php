@@ -133,6 +133,12 @@
             return $resultado;
         }
 
+         #Consultar citas
+         public function ConsultarCitasHoy(){
+            $resultado = $this->bd->query("SELECT * FROM CITA WHERE FECHA = '2021-09-01'");
+            return $resultado;
+        }
+
         #Consultar cargos
         public function ConsultarCargo(){
             $resultado = $this->bd->query("SELECT * FROM CARGOS");

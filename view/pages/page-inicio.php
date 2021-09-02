@@ -5,7 +5,7 @@ require_once "../../app/data/sql.php";
 
 $consulta = new sql();
 
-$consulta_cita = $consulta->ConsultarCitas();
+$consulta_cita = $consulta->ConsultarCitasHoy();
 $consulta_procedimiento = $consulta->ConsultarProcedimientos()
 
 ?>
@@ -93,7 +93,6 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos()
                     <th>Número de orden</th>
                     <th>Cédula del paciente</th>
                     <th>Nombre del paciente</th>
-                    <th>Cédula del funcionario</th>
                     <th>Nombre del funcionario</th>
                     <th>Procedimiento</th>
                     <th>Observación</th>
@@ -108,12 +107,11 @@ $consulta_procedimiento = $consulta->ConsultarProcedimientos()
                     <a data-bs-toggle="modal" data-bs-target="#modal-cita-delete<?php echo $display['COD_CITA'] ?>"  id="btnDelete" ><i class="icon ion-md-trash"></i></a>
                     </td>
                     <td><?php echo $display['ESTADO']; ?></td>
-                    <td><?php echo $display['HORA']; ?></td>
+                    <td><?php echo $display['HORA'] ." ". $display['FECHA']; ?></td>
                     <td><?php echo $display['NUMERO_HISTORIA']; ?></td>
                     <td><?php echo $display['NUMERO_DE_ORDEN']; ?></td>
                     <td><?php echo $display['CED_PA']; ?></td>
                     <td><?php echo $display['NOMBRE_PA']; ?></td>
-                    <td><?php echo $display['CED_FUN']; ?></td>
                     <td><?php echo $display['NOMBRE_FUN']; ?></td>
                     <td><?php echo $display['PROCEDIMIENTOS'] . " " . $display['DETALLE_PRO'] ?></td>
                     <td><?php echo $display['OBSERVACION']; ?></td>

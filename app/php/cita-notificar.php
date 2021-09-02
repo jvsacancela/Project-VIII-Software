@@ -131,32 +131,32 @@ if($a=="recordatorio"){
             echo $fecha_u = $row['FECHA'];
             echo $hora_u = $row['HORA'];
            
-            if($fechaf==$fecha_u){
-                $fecha_ul= date($fecha_u);
-                $fecha_ult = strtotime('+1 day', strtotime($fecha_ul));
-                echo $fecha_ult = date('Y-m-d', $fecha_ult);
-                echo $fechaff=$fecha_ult." 06:00:00";
-                $h= substr( $roww['TIEMPO'],0,-6);
-                $m= substr( $roww['TIEMPO'],3,-3);
-                echo $newtime= $h.'H'.$m.'M';
-                $intervalo = new DateInterval('PT'.$newtime); // intervalo de tiempo 19 horas y 30 min
-                $fechaf= new DateTime($fechaff);
-    
-                $fechaf->add($intervalo);
-                echo $fechaf->format('Y-m-d H:i:s' );
+                if($fechaf==$fecha_u){
+                    $fecha_ul= date($fecha_u);
+                    $fecha_ult = strtotime('+1 day', strtotime($fecha_ul));
+                    echo $fecha_ult = date('Y-m-d', $fecha_ult);
+                    echo $fechaff=$fecha_ult." 06:00:00";
+                    $h= substr( $roww['TIEMPO'],0,-6);
+                    $m= substr( $roww['TIEMPO'],3,-3);
+                    echo $newtime= $h.'H'.$m.'M';
+                    $intervalo = new DateInterval('PT'.$newtime); // intervalo de tiempo 19 horas y 30 min
+                    $fechaf= new DateTime($fechaff);
+        
+                    $fechaf->add($intervalo);
+                    echo $fechaf->format('Y-m-d H:i:s' );
 
-            }else{
-                echo $fechaff=$fecha_u." ".$hora_u;
-                $h= substr( $roww['TIEMPO'],0,-6);
-                $m= substr( $roww['TIEMPO'],3,-3);
-                echo $newtime= $h.'H'.$m.'M';
-                $intervalo = new DateInterval('PT'.$newtime); // intervalo de tiempo 19 horas y 30 min
-                $fechaf= new DateTime($fechaff);
-    
-                $fechaf->add($intervalo);
-                echo $fechaf->format('Y-m-d H:i:s' );
+                }else{
+                    echo $fechaff=$fecha_u." ".$hora_u;
+                    $h= substr( $roww['TIEMPO'],0,-6);
+                    $m= substr( $roww['TIEMPO'],3,-3);
+                    echo $newtime= $h.'H'.$m.'M';
+                    $intervalo = new DateInterval('PT'.$newtime); // intervalo de tiempo 19 horas y 30 min
+                    $fechaf= new DateTime($fechaff);
+        
+                    $fechaf->add($intervalo);
+                    echo $fechaf->format('Y-m-d H:i:s' );
 
-            }
+                }
             }
             echo $abec=$fechaf->format('Y-m-d H:i:s');
             $tiempo_reagendar= substr($abec,11);
