@@ -1,0 +1,30 @@
+* {
+    font-size: 12px;
+    font-family: 'Times New Roman';
+}
+
+
+.centrado {
+    text-align: center;
+    align-content: center;
+}
+
+.ticket {
+    width: 200px;
+    max-width: 200px;
+}
+h3 { margin: 0 !important; }
+h2 { margin: 0 !important; }
+p { margin: 0 !important; }
+
+img {
+    max-width: 50px;
+    width: 50px;
+     
+}
+@media print {
+    .oculto-impresion,
+    .oculto-impresion * {
+        display: none !important;
+    }
+}
